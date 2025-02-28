@@ -1,0 +1,135 @@
+# Polish translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-02-20 09:13+0100\n"
+"PO-Revision-Date: 2025-02-20 09:14+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: pl\n"
+"Language-Team: pl <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: multilinguale.py:30
+msgid "Faith Project"
+msgstr "Faith Project"
+
+#: multilinguale.py:30
+msgid "Добро пожаловать на Faith Project"
+msgstr "Witamy w Faith Project"
+
+#: multilinguale.py:34
+msgid "Библия"
+msgstr "Biblia"
+
+#: multilinguale.py:38
+msgid "Группы"
+msgstr "Grupy"
+
+#: multilinguale.py:42
+msgid "Мероприятия"
+msgstr "Wydarzenia" 
+
+#: multilinguale.py:46
+msgid "О нас"
+msgstr "O nas"
+
+#: templates/project.html:19
+msgid "Главная"
+msgstr "Strona główna"
+msgid "Добро пожаловать на этот сайт!"
+msgstr "Witamy na tej stronie!"
+
+msgid "Этот проект создан для <strong>верующих</strong> и тех, кто <strong>хочет узнать больше об Иисусе</strong>. Наша цель — помочь людям <strong>глубже понять Библию</strong> и найти <strong>единомышленников</strong>."
+msgstr "Ten projekt został stworzony dla <strong>wierzących</strong> i tych, którzy <strong>chcą dowiedzieć się więcej o Jezusie</strong>. Naszym celem jest pomóc ludziom <strong>głębiej zrozumieć Biblię</strong> i znaleźć <strong>pokrewnych dusz</strong>."
+
+msgid "📖 Доступ к Библии на <strong>трех языках</strong> с <strong>поиском</strong> по ключевым словам и стихам."
+msgstr "📖 Dostęp do Biblii w <strong>trzech językach</strong> z <strong>wyszukiwaniem</strong> słów kluczowych i wersetów."
+
+msgid "📅 Раздел <strong>«Мероприятия»</strong> с календарем и информацией о встречах."
+msgstr "📅 Sekcja <strong>«Wydarzenia»</strong> z kalendarzem i informacjami o spotkaniach."
+
+msgid "👥 Раздел <strong>«Группы»</strong> для общения и изучения Писания."
+msgstr "👥 Sekcja <strong>«Grupy»</strong> do wspólnoty i studiowania Pisma."
+
+msgid "✨ В разработке — <strong>новые функции</strong>. Следите за обновлениями! 😉"
+msgstr "✨ W opracowaniu — <strong>nowe funkcje</strong>. Śledź aktualizacje! 😉"
+
+msgid "Поддержите проект — расскажите о нем друзьям!"
+msgstr "Wsparcie projektu — opowiedz o nim swoim przyjaciołom!"
+
+msgid "Здесь вы найдете Библию, ссылки на группы верующих и информацию о предстоящих мероприятиях."
+msgstr "Tutaj znajdziesz Biblię, linki do grup wierzących i informacje o nadchodzących wydarzeniach."
+msgid "Все права защищены."
+msgstr "Wszelkie prawa zastrzeżone."
+
+msgid "Создатель сайта:"
+msgstr "Twórca strony:"
+msgid "Контактный email:"
+msgstr " E-mail"
+msgid "Мой Telegram:"
+msgstr "Mój Telegram:"
+msgid "Город: <strong>Катовице"
+msgstr " Miasto: <strong> Katowice"
+msgid "Этот сайт был создан с любовью и целью помочь всем верующим людям быть ближе к Богу и друг другу. Мы верим, что этот проект станет хорошей платформой для общения, изучения Писания и развития духовной жизни."
+msgstr "Ta strona została stworzona z miłością i celem pomocy wszystkim wierzącym ludziom w byciu bliżej Boga i siebie nawzajem. Wierzymy, że ten projekt stanie się dobrą platformą do wspólnej modlitwy, studiowania Pisma Świętego i rozwoju duchowego życia."
+
+
+msgid "Текст Библии"
+msgstr "Tekst Biblii"
+
+msgid "Новый Завет"
+msgstr "Nowy Testament"
+
+msgid "Содержимое раздела"
+msgstr "Zawartość rozdziału"
+
+msgid "Старый Завет"
+msgstr "Stary Testament"
+
+msgid "Исход"
+msgstr "Wyjście"
+
+msgid "Левит"
+msgstr "Księga Kapłańska"
+
+msgid "Числа"
+msgstr "Księga Liczb"
+
+msgid "Второзаконие"
+msgstr "Księga Powtórzonego Prawa"
+
+
+
+msgid "Мероприятия"
+msgstr "Wydarzenia"
+
+msgid "Расписание мероприятий"
+msgstr "Kalendarz wydarzeń"
+
+msgid "Группы"
+msgstr "Grupy"
+
+msgid "Список групп"
+msgstr "Lista Grup"
+
+msgid "Открыть Библию"
+msgstr "Otwórz Biblię"
+
+
+
+
+
+
+
+
+

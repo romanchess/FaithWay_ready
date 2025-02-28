@@ -1,0 +1,149 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Шапка сайта */
+header {
+    background-color: #00bfff;
+    color: gray;
+    padding: 20px ;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 20px 0 0 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav li {
+    margin: 15px;
+    font-size: 1.5em;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+/* Hero section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height:120%;
+    object-fit: cover; /* Картинка растягивается на весь экран */
+    position: absolute;
+  
+    left: 0;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 20%; /* Текст будет находиться сверху */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-align: center;
+    padding: -80px;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+    width: 90%; /* Контейнер для текста */
+    border-radius: 10px;
+    font-size: 1em;
+    max-height: 80vh;
+    overflow: hidden; 
+}
+
+.text-overlay h2 {
+    font-size: 3em;
+}
+
+.text-overlay p {
+    font-size: 2em;
+    line-height: 1.6;
+}
+
+/* Основной контент */
+main {
+    padding-top: 0px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.description {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.description h1 {
+    color: #1E90FF;
+}
+
+.description ul {
+    list-style: none;
+    padding: 0;
+}
+
+.description ul li {
+    font-style: italic;
+    margin: 12px 0;
+}
+
+/* Подвал */
+footer {
+    background-color: #00bfff;
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    .text-overlay h2 {
+        font-size: 1.8em;
+    }
+
+    .text-overlay p {
+        font-size: 1em;
+    }
+}
+

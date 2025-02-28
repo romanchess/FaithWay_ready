@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ _('Группы') }}</title>
+  <meta name="description" content="{{ _('Страница со списком групп проекта Faith Project') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Letter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <!-- Ссылка для перехода к основному контенту -->
+  <a href="#main-content" class="skip-link">{{ _('Перейти к содержимому') }}</a>
+  
+  <header>
+    <h1>{{ _('Группы') }}</h1>
+    <nav aria-label="Основное меню">
+      <ul>
+        <li><a href="{{ url_for('home', lang=get_locale()) }}">{{ _('Главная') }}</a></li>
+        <li><a href="{{ url_for('bible', lang=get_locale()) }}">{{ _('Библия') }}</a></li>
+        <li><a href="{{ url_for('groups', lang=get_locale()) }}">{{ _('Группы') }}</a></li>
+        <li><a href="{{ url_for('events', lang=get_locale()) }}">{{ _('Мероприятия') }}</a></li>
+        <li><a href="{{ url_for('about', lang=get_locale()) }}">{{ _('О нас') }}</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main id="main-content">
+    <section class="hero">
+      <img src="{{ url_for('static', filename='5000_people.png') }}" alt="{{ _('Изображение, демонстрирующее множество людей') }}" />
+      <div class="text-overlay">
+        <div class="container">
+          <h2>{{ _('Список групп') }}</h2>
+          <!-- Дополнительный контент, например, список групп можно добавить сюда -->
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 Faith Project. {{ _('Все права защищены.') }}</p>
+  </footer>
+</body>
+</html>
+
