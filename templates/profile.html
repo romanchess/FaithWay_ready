@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ _('Личный кабинет') }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <header>
+    <h1>{{ _('Личный кабинет') }}</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
+        <li><a href="{{ url_for('bible') }}">{{ _('Библия') }}</a></li>
+        <li><a href="{{ url_for('groups') }}">{{ _('Группы') }}</a></li>
+        <li><a href="{{ url_for('events') }}">{{ _('Мероприятия') }}</a></li>
+        <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <div class="profile-container">
+      <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+      <p><strong>{{ _('Возраст') }}:</strong> {{ user.get_age() }}</p>
+      <p><strong>{{ _('Пол') }}:</strong> {{ _('Мужской') if user.gender == 'male' else _('Женский') }}</p>
+      
+      <!-- Фото профиля -->
+      <div class="profile-image">
+        <img src="{{ url_for('static', filename='user_photos/' + user.profile_picture) }}" alt="Profile Picture">
+      </div>
+      
+      <form method="POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">
+        <label for="profile_picture">{{ _('Загрузить фото') }}:</label>
+        <input type="file" id="profile_picture" name="profile_picture">
+        
+        <label for="city">{{ _('Город') }}:</label>
+        <input type="text" id="city" name="city" value="{{ user.city }}">
+        
+        <label for="bio">{{ _('О себе') }}:</label>
+        <textarea id="bio" name="bio">{{ user.bio }}</textarea>
+        
+        <button type="submit">{{ _('Сохранить изменения') }}</button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
+

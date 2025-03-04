@@ -94,6 +94,23 @@ nav a:hover {
 }
 
 /* Основной контент */
+/* Контейнер для фото */
+.profile-image {
+    text-align: center; /* Центрируем фото */
+    margin-bottom: 20px;
+}
+
+/* Фото профиля */
+.profile-image img {
+    width: 150px;  /* Устанавливаем фиксированный размер */
+    height: 150px;
+    object-fit: cover; /* Обрезает фото, чтобы оно было равномерным */
+    border-radius: 50%; /* Делаем фото круглым */
+    border: 3px solid #007BFF; /* Добавляем рамку */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+}
+
+
 main {
     padding-top: 0px;
     padding-bottom: 40px;
