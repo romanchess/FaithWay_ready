@@ -121,6 +121,60 @@ main {
     margin: 12px 0;
 }
 
+/* Контейнер формы */
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Контейнер формы с вертикальным расположением элементов */
+.auth-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* элементы будут растягиваться по ширине */
+}
+
+/* Метки полей (label) с увеличенным шрифтом */
+.auth-form label {
+  display: block;
+  font-size: 1.5em;  /* увеличенный размер шрифта */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Поля ввода, выпадающие списки и кнопки с увеличенным шрифтом и отступами */
+.auth-form input,
+.auth-form select,
+.auth-form button {
+  display: block;
+  width: 100%;
+  font-size: 1em;  /* чуть больше шрифт */
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Кнопка отправки */
+.auth-form button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
 /* Подвал */
 footer {
     background-color: #00bfff;
@@ -145,52 +199,12 @@ footer {
     .text-overlay p {
         font-size: 1em;
     }
-    /* Стили для модальных окон */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background: rgba(0, 0, 0, 0.5);
-}
 
-.modal-content {
-  background: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 4px;
-  position: relative;
-}
 
-.close {
-  color: #aaa;
-  font-size: 24px;
-  font-weight: bold;
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  cursor: pointer;
-}
 
-/* Пример стиля для кнопок входа/регистрации, если необходимо */
-.auth-buttons button {
-  margin: 0 5px;
-  padding: 8px 16px;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 4px;
-}
 
-.auth-buttons button:hover {
-  background-color: #0056b3;
+
+
 }
 
 

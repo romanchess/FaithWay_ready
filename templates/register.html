@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
+  <title>{{ _('Регистрация') }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <meta name="description" content="{{ _('Страница регистрации пользователя') }}">
 </head>
 <body>
+
   <header>
     <h1>{{ _('Регистрация') }}</h1>
     <nav>
@@ -19,14 +20,30 @@
   </header>
 
   <main>
+    <!-- Вывод сообщений flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Форма регистрации -->
     <form method="POST" action="{{ url_for('auth.register') }}" class="auth-form">
+      {% if csrf_token %}  <!-- Если используете Flask-WTF, оставить, иначе можно удалить -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      {% endif %}
+      
       <label for="first_name">{{ _('Имя') }}:</label>
       <input type="text" id="first_name" name="first_name" required>
       
       <label for="last_name">{{ _('Фамилия') }}:</label>
       <input type="text" id="last_name" name="last_name" required>
       
-      <label for="password">{{ _('Пароль') }} (минимум 8 символов):</label>
+      <label for="password">{{ _('Пароль') }} ({{ _('минимум 8 символов') }}):</label>
       <input type="password" id="password" name="password" required minlength="8">
       
       <label for="confirm_password">{{ _('Повторите пароль') }}:</label>
@@ -50,16 +67,11 @@
       
       <button type="submit">{{ _('Зарегистрироваться') }}</button>
     </form>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        <ul class="flash-messages">
-          {% for category, message in messages %}
-            <li class="{{ category }}">{{ message }}</li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    {% endwith %}
+
+    <p>{{ _('Уже есть аккаунт?') }} <a href="{{ url_for('auth.login', lang=get_locale()) }}">{{ _('Войти') }}</a></p>
+
   </main>
+
 </body>
 </html>
 
