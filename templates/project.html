@@ -1,82 +1,80 @@
 <!DOCTYPE html>
 <html lang="{{ get_locale() }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>{{ _('Добро пожаловать на Faith Project') }}</h1>
-            <nav>
-                <ul>
-                    <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
-                    <li><a href="{{ url_for('bible') }}">{{ _('Библия') }}</a></li>
-                    <li><a href="{{ url_for('groups') }}">{{ _('Группы') }}</a></li>
-                    <li><a href="{{ url_for('events') }}">{{ _('Мероприятия') }}</a></li>
-                    <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
-                </ul>
-                <!-- Выбор языка -->
-                <form id="language-form">
-                    <select name="language" onchange="changeLanguage(event)">
-                        <option value="en" {% if get_locale() == 'en' %}selected{% endif %}>English</option>
-                        <option value="ru" {% if get_locale() == 'ru' %}selected{% endif %}>Русский</option>
-                        <option value="pl" {% if get_locale() == 'pl' %}selected{% endif %}>Polski</option>
-                    </select>
-                </form>
-                <!-- Кнопки входа и регистрации -->
-                <div class="auth-buttons">
-                    <button onclick="openLoginModal()">{{ _('Вход') }}</button>
-                    <button onclick="openRegisterModal()">{{ _('Регистрация') }}</button>
-                </div>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="container">
+      <h1>{{ _('Добро пожаловать на Faith Project') }}</h1>
+      <nav>
+        <ul>
+          <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
+          <li><a href="{{ url_for('bible') }}">{{ _('Библия') }}</a></li>
+          <li><a href="{{ url_for('groups') }}">{{ _('Группы') }}</a></li>
+          <li><a href="{{ url_for('events') }}">{{ _('Мероприятия') }}</a></li>
+          <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
 
-    <main>
-        <section class="hero">
-            <img src="{{ url_for('static', filename='justjezus.jpg') }}" alt="jezuz_1">
-            <div class="text-overlay">
-                <h2>{{ _('Добро пожаловать на этот сайт!') }}</h2>
-                <p>{{ _('Этот проект создан для <strong>верующих</strong> и тех, кто <strong>хочет узнать больше об Иисусе</strong>. Наша цель — помочь людям <strong>глубже понять Библию</strong> и найти <strong>единомышленников</strong>.') | safe }}</p>
-                <ul>
-                    <li>{{ _('📖 Доступ к Библии на <strong>трех языках</strong> с <strong>поиском</strong> по ключевым словам и стихам.') | safe }}</li>
-                    <li>{{ _('📅 Раздел <strong>«Мероприятия»</strong> с календарем и информацией о встречах.') | safe }}</li>
-                    <li>{{ _('👥 Раздел <strong>«Группы»</strong> для общения и изучения Писания.') | safe }}</li>
-                    <li>{{ _('✨ В разработке — <strong>новые функции</strong>. Следите за обновлениями! 😉') | safe }}</li>
-                </ul>
-                <p><strong>{{ _('Поддержите проект — расскажите о нем друзьям!') }}</strong></p>
-            </div>
-        </section>
+          {% if current_user.is_authenticated %}
+            <li><a href="{{ url_for('profile') }}">{{ _('Личный кабинет') }}</a></li>
+            <li><a href="{{ url_for('auth.logout') }}">{{ _('Выход') }}</a></li>
+          {% else %}
+            <li><a href="{{ url_for('auth.register') }}">{{ _('Регистрация') }}</a></li>
+            <li><a href="{{ url_for('auth.login') }}">{{ _('Вход') }}</a></li>
+          {% endif %}
+        </ul>
 
-        <div class="container">
-            <p>{{ _('Здесь вы найдете Библию, ссылки на группы верующих и информацию о предстоящих мероприятиях.') }}</p>
-        </div>
-    </main>
+        <!-- Language Selection Form -->
+        <form id="language-form">
+          <select name="language" onchange="changeLanguage(event)">
+            <option value="en" {% if get_locale() == 'en' %}selected{% endif %}>English</option>
+            <option value="ru" {% if get_locale() == 'ru' %}selected{% endif %}>Русский</option>
+            <option value="pl" {% if get_locale() == 'pl' %}selected{% endif %}>Polski</option>
+          </select>
+        </form>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Faith Project. {{ _('Все права защищены.') }}</p>
-    </footer>
+  <main>
+    <section class="hero">
+      <img src="{{ url_for('static', filename='justjezus.jpg') }}" alt="jezuz_1">
+      <div class="text-overlay">
+        <h2>{{ _('Добро пожаловать на этот сайт!') }}</h2>
+        <p>
+          {{ _('Этот проект создан для <strong>верующих</strong> и тех, кто <strong>хочет узнать больше об Иисусе</strong>. Наша цель — помочь людям <strong>глубже понять Библию</strong> и найти <strong>единомышленников</strong>.') | safe }}
+        </p>
+        <ul>
+          <li>{{ _('📖 Доступ к Библии на <strong>трех языках</strong> с <strong>поиском</strong> по ключевым словам и стихам.') | safe }}</li>
+          <li>{{ _('📅 Раздел <strong>«Мероприятия»</strong> с календарем и информацией о встречах.') | safe }}</li>
+          <li>{{ _('👥 Раздел <strong>«Группы»</strong> для общения и изучения Писания.') | safe }}</li>
+          <li>{{ _('✨ В разработке — <strong>новые функции</strong>. Следите за обновлениями! 😉') | safe }}</li>
+        </ul>
+        <p><strong>{{ _('Поддержите проект — расскажите о нем друзьям!') }}</strong></p>
+      </div>
+    </section>
 
-    <!-- Скрипт для смены языка -->
-    <script>
-        function changeLanguage(event) {
-            const lang = event.target.value;
-            document.cookie = `language=${lang}; path=/; max-age=31536000`;
-            location.reload();
-        }
+    <div class="container">
+      <p>{{ _('Здесь вы найдете Библию, ссылки на группы верующих и информацию о предстоящих мероприятиях.') }}</p>
+    </div>
+  </main>
 
-        function openLoginModal() {
-            alert("Окно входа в разработке...");
-        }
+  <footer>
+    <p>&copy; 2025 Faith Project. {{ _('Все права защищены.') }}</p>
+  </footer>
 
-        function openRegisterModal() {
-            alert("Окно регистрации в разработке...");
-        }
-    </script>
+  <script>
+    // Function to change language
+    function changeLanguage(event) {
+      const lang = event.target.value;
+      document.cookie = `language=${lang}; path=/; max-age=31536000`;
+      location.reload();
+    }
+  </script>
 </body>
 </html>
 

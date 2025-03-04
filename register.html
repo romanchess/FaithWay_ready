@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta name="description" content="{{ _('Страница регистрации пользователя') }}">
+</head>
+<body>
+  <header>
+    <h1>{{ _('Регистрация') }}</h1>
+    <nav>
+        <ul>
+
+  <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
+  <li><a href="{{ url_for('bible') }}">{{ _('Библия') }}</a></li>
+  <li><a href="{{ url_for('groups') }}">{{ _('Группы') }}</a></li>
+  <li><a href="{{ url_for('events') }}">{{ _('Мероприятия') }}</a></li>
+  <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
+  <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+  <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+
+
+
+        </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form method="POST" action="{{ url_for('auth.register') }}" class="auth-form">
+      <label for="first_name">{{ _('Имя') }}:</label>
+      <input type="text" id="first_name" name="first_name" required>
+      
+      <label for="last_name">{{ _('Фамилия') }}:</label>
+      <input type="text" id="last_name" name="last_name" required>
+      
+      <label for="password">{{ _('Пароль') }} (минимум 8 символов):</label>
+      <input type="password" id="password" name="password" required minlength="8">
+      
+      <label for="confirm_password">{{ _('Повторите пароль') }}:</label>
+      <input type="password" id="confirm_password" name="confirm_password" required minlength="8">
+      
+      <label for="email">{{ _('Электронная почта') }}:</label>
+      <input type="email" id="email" name="email">
+      
+      <label for="phone">{{ _('Номер телефона') }}:</label>
+      <input type="tel" id="phone" name="phone">
+      
+      <label for="gender">{{ _('Пол') }}:</label>
+      <select id="gender" name="gender" required>
+         <option value="male">{{ _('Мужской') }}</option>
+         <option value="female">{{ _('Женский') }}</option>
+         <option value="other">{{ _('Другое') }}</option>
+      </select>
+      
+      <label for="dob">{{ _('Дата рождения') }}:</label>
+      <input type="date" id="dob" name="dob" required>
+      
+      <button type="submit">{{ _('Зарегистрироваться') }}</button>
+    </form>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </main>
+</body>
+</html>
+

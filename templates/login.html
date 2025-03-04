@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="{{ get_locale() }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ _('Вход') }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <meta name="description" content="{{ _('Страница входа пользователя') }}">
+</head>
+<body>
+
+  <header>
+    <h1>{{ _('Вход') }}</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
+        <li><a href="{{ url_for('bible') }}">{{ _('Библия') }}</a></li>
+        <li><a href="{{ url_for('groups') }}">{{ _('Группы') }}</a></li>
+        <li><a href="{{ url_for('events') }}">{{ _('Мероприятия') }}</a></li>
+        <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
+        
+        {% if current_user.is_authenticated %}
+          <li><a href="{{ url_for('auth.logout') }}">{{ _('Выход') }}</a></li>
+        {% else %}
+          <li><a href="{{ url_for('auth.register') }}">{{ _('Регистрация') }}</a></li>
+          <li><a href="{{ url_for('auth.login') }}">{{ _('Вход') }}</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Display Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for category, message in messages %}
+            <li class="{{ category }}">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Login Form -->
+    <form method="POST" action="{{ url_for('auth.login') }}" class="auth-form">
+      {% if csrf_token %}  <!-- If Flask-WTF is used, include CSRF token -->
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      {% endif %}
+
+      <label for="email_or_phone">{{ _('Электронная почта или номер телефона') }}:</label>
+      <input type="text" id="email_or_phone" name="email_or_phone" required>
+      
+      <label for="password">{{ _('Пароль') }}:</label>
+      <input type="password" id="password" name="password" required>
+      
+      <button type="submit">{{ _('Войти') }}</button>
+    </form>
+
+    <p>{{ _('Еще нет аккаунта?') }} <a href="{{ url_for('auth.register', lang=get_locale()) }}">{{ _('Зарегистрироваться') }}</a></p>
+
+  </main>
+
+</body>
+</html>
+
