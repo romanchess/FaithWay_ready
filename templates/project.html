@@ -21,10 +21,10 @@
 
           {% if current_user.is_authenticated %}
             <li><a href="{{ url_for('profile') }}">{{ _('Личный кабинет') }}</a></li>
-            <li><a href="{{ url_for('auth.logout') }}">{{ _('Выход') }}</a></li>
+            <li><a href="{{ url_for('logout_route') }}">{{ _('Выход') }}</a></li>
           {% else %}
-            <li><a href="{{ url_for('auth.register') }}">{{ _('Регистрация') }}</a></li>
-            <li><a href="{{ url_for('auth.login') }}">{{ _('Вход') }}</a></li>
+            <li><a href="{{ url_for('register_route') }}">{{ _('Регистрация') }}</a></li>
+            <li><a href="{{ url_for('login_route') }}">{{ _('Вход') }}</a></li>
           {% endif %}
         </ul>
 

@@ -1,14 +1,109 @@
-<!-- relationship.html-->
 <!DOCTYPE html>
-<html lang="{{ get_locale() }}">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>{{ _("Общение и поиск единомышленников") }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Знакомства в вере</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-  <h1>{{ _("Общение и поиск единомышленников") }}</h1>
-  <!-- Контент -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>Это не типичный сайт знакомств!</h2>
+            <p>При переходе по текущей ссылке вы должны ознакомиться со всеми правилами и пройти короткий тест.</p>
+            <p><b>Основные правила:</b></p>
+            <ul>
+                <li>Только серьёзные намерения или дружеское общение.</li>
+                <li>Неуважение к другим пользователям приведёт к блокировке.</li>
+                <li>Многократные жалобы → удаление профиля.</li>
+                <li>Любите Иисуса и не грешите!</li>
+            </ul>
+            <button id="startTest">Пройти тест</button>
+        </div>
+    </div>
+
+    <div id="test" class="test hidden">
+        <div class="test-content">
+            <h2>Короткий тест</h2>
+            <p>Каковы ваши намерения на этом сайте?</p>
+            <select id="testAnswer">
+                <option value="serious">Серьезные отношения</option>
+                <option value="friendship">Дружеское общение</option>
+                <option value="fun">Просто развлечение</option>
+            </select>
+            <button id="submitTest">Отправить</button>
+        </div>
+    </div>
+
+    <div id="dating-section" class="hidden">
+        <h2>Анкеты</h2>
+        <div id="profile-container">
+            <div id="profile-card" class="profile-card">
+                <img id="profile-pic" src="" alt="Фото профиля">
+                <h3 id="profile-name"></h3>
+                <p id="profile-city"></p>
+                <p id="profile-age"></p>
+                <button id="like">❤️ Нравится</button>
+                <button id="dislike">⏭️ Дальше</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const popup = document.getElementById("popup");
+            const test = document.getElementById("test");
+            const datingSection = document.getElementById("dating-section");
+            const startTest = document.getElementById("startTest");
+            const submitTest = document.getElementById("submitTest");
+            const testAnswer = document.getElementById("testAnswer");
+            
+            popup.style.display = "block";
+            
+            startTest.addEventListener("click", () => {
+                popup.style.display = "none";
+                test.style.display = "block";
+            });
+
+            submitTest.addEventListener("click", () => {
+                if (testAnswer.value === "fun") {
+                    alert("Вы не подходите для этого сайта.");
+                } else {
+                    test.style.display = "none";
+                    datingSection.style.display = "block";
+                    loadProfiles();
+                }
+            });
+        });
+
+        function loadProfiles() {
+            fetch('/get_dating_profiles?user_id=1')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        showProfile(data, 0);
+                    } else {
+                        document.getElementById("profile-container").innerHTML = "<p>Нет доступных анкет</p>";
+                    }
+                });
+        }
+
+        function showProfile(profiles, index) {
+            if (index >= profiles.length) {
+                document.getElementById("profile-container").innerHTML = "<p>Анкеты закончились!</p>";
+                return;
+            }
+            const profile = profiles[index];
+            document.getElementById("profile-pic").src = profile.profile_picture;
+            document.getElementById("profile-name").innerText = profile.name;
+            document.getElementById("profile-city").innerText = "Город: " + profile.city;
+            document.getElementById("profile-age").innerText = "Возраст: " + profile.age;
+            
+            document.getElementById("like").onclick = () => showProfile(profiles, index + 1);
+            document.getElementById("dislike").onclick = () => showProfile(profiles, index + 1);
+        }
+    </script>
 </body>
 </html>
 

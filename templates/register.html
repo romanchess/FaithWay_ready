@@ -14,7 +14,7 @@
     <nav>
       <ul>
         <li><a href="{{ url_for('home', lang=get_locale()) }}">{{ _('Главная') }}</a></li>
-        <li><a href="{{ url_for('auth.login', lang=get_locale()) }}">{{ _('Вход') }}</a></li>
+        <li><a href="{{ url_for('login_route', lang=get_locale()) }}">{{ _('Вход') }}</a></li>
       </ul>
     </nav>
   </header>
@@ -32,7 +32,7 @@
     {% endwith %}
 
     <!-- Форма регистрации -->
-    <form method="POST" action="{{ url_for('auth.register') }}" class="auth-form">
+    <form method="POST" action="{{ url_for('register_route') }}" class="auth-form">
       {% if csrf_token %}  <!-- Если используете Flask-WTF, оставить, иначе можно удалить -->
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       {% endif %}
@@ -68,7 +68,7 @@
       <button type="submit">{{ _('Зарегистрироваться') }}</button>
     </form>
 
-    <p>{{ _('Уже есть аккаунт?') }} <a href="{{ url_for('auth.login', lang=get_locale()) }}">{{ _('Войти') }}</a></p>
+    <p>{{ _('Уже есть аккаунт?') }} <a href="{{ url_for('login_route', lang=get_locale()) }}">{{ _('Войти') }}</a></p>
 
   </main>
 

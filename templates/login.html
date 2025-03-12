@@ -20,10 +20,10 @@
         <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
         
         {% if current_user.is_authenticated %}
-          <li><a href="{{ url_for('auth.logout') }}">{{ _('Выход') }}</a></li>
+          <li><a href="{{ url_for('logout_route') }}">{{ _('Выход') }}</a></li>
         {% else %}
-          <li><a href="{{ url_for('auth.register') }}">{{ _('Регистрация') }}</a></li>
-          <li><a href="{{ url_for('auth.login') }}">{{ _('Вход') }}</a></li>
+          <li><a href="{{ url_for('register_route') }}">{{ _('Регистрация') }}</a></li>
+          <li><a href="{{ url_for('login_route') }}">{{ _('Вход') }}</a></li>
         {% endif %}
       </ul>
     </nav>
@@ -43,7 +43,7 @@
     {% endwith %}
 
     <!-- Login Form -->
-    <form method="POST" action="{{ url_for('auth.login') }}" class="auth-form">
+    <form method="POST" action="{{ url_for('login_route') }}" class="auth-form">
       {% if csrf_token %}  <!-- If Flask-WTF is used, include CSRF token -->
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
       {% endif %}
@@ -57,7 +57,7 @@
       <button type="submit">{{ _('Войти') }}</button>
     </form>
 
-    <p>{{ _('Еще нет аккаунта?') }} <a href="{{ url_for('auth.register', lang=get_locale()) }}">{{ _('Зарегистрироваться') }}</a></p>
+    <p>{{ _('Еще нет аккаунта?') }} <a href="{{ url_for('register_route', lang=get_locale()) }}">{{ _('Зарегистрироваться') }}</a></p>
 
   </main>
 
