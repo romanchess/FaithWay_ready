@@ -5,9 +5,22 @@ from werkzeug.utils import secure_filename
 from sqlalchemy.exc import IntegrityError
 from datetime import datetime, date
 import os
+import json
 import math
 
 from models import db, User, Message
+
+import logging
+
+
+def load_bible_content(lang):
+    bible_file = os.path.join('static', 'bible', f'Biblia_{lang}.json')
+    if os.path.exists(bible_file):
+        with open(bible_file, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    else:
+        return None
+
 
 # Sprawdzenie, czy plik ma dozwolone rozszerzenie, pobierając zestaw z konfiguracji
 def allowed_file(filename):
@@ -132,7 +145,7 @@ def logout():
     from flask_login import logout_user
     logout_user()
     flash(_("You have been logged out"), 'info')
-    return redirect(url_for('login'))
+    return redirect(url_for('login_route'))
 
 
 # Rejestracja użytkownika

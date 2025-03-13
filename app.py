@@ -17,7 +17,8 @@ from functions import (
     login,
     logout,
     get_locale,
-    profile_func
+    profile_func,
+    load_bible_content
 )
 import os
 
@@ -44,7 +45,8 @@ babel = Babel(app)
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return db.session.get(User, int(user_id))
+
 
 @babel.localeselector
 def get_locale_func():
@@ -68,6 +70,17 @@ def home():
 @app.route("/bible")
 def bible():
     return render_template("bible.html", title="Библия")
+
+@app.route('/bible/content')
+def bible_content():
+    lang = request.args.get('lang', 'ru')  # Получаем параметр языка
+    bible_data = load_bible_content(lang)  # Загружаем контент Библии
+
+    if bible_data:
+        return jsonify(bible_data)  # Возвращаем JSON
+    else:
+        return jsonify({"error": "Файл не найден"}), 404
+
 
 @app.route("/groups")
 def groups():
