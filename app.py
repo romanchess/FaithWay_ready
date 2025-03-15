@@ -8,7 +8,7 @@ from models import db, User
 from functions import (
     allowed_file,
     get_dating_profiles,
-    like_profile,
+    like_profile_func,
     inject_conf_var,
     set_language,
     send_message,

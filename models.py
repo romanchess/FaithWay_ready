@@ -32,7 +32,26 @@ class User(db.Model, UserMixin):
     created_at = db.Column(db.DateTime, default=date.today)
 
 class Like(db.Model):
-    __tablename__ = 'likes'
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)       # Użytkownik, który "lajkuje"
-    liked_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)   # Użytkownik, który został polubiony
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    liked_user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+  # Użytkownik, który został polubiony
+
+class TestResult(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    intention = db.Column(db.String(100), nullable=False)
+    morality = db.Column(db.String(100), nullable=False)
+    marriage = db.Column(db.String(100), nullable=False)
+
+
+class PrivateMessage(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    sender_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    message = db.Column(db.String(500), nullable=False)
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+
+    sender = db.relationship('User', foreign_keys=[sender_id], backref='sent_messages')
+    receiver = db.relationship('User', foreign_keys=[receiver_id], backref='received_messages')
+

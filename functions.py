@@ -8,7 +8,7 @@ import os
 import json
 import math
 
-from models import db, User, Message
+from models import db, User, Message, TestResult, Like, PrivateMessage
 
 import logging
 
@@ -63,23 +63,88 @@ def get_dating_profiles():
     return jsonify(result)
 
 # Obsługa "lajków" – tutaj wykorzystujemy SQLAlchemy do wykonania surowego zapytania
-def like_profile():
+# ... предыдущий код без изменений ...
+
+def like_profile_func():
+    data = request.get_json()
+    liked_user_id = data.get('liked_user_id')
+
+    if not liked_user_id:
+        return jsonify({"error": "liked_user_id is required"}), 400
+
+    try:
+        existing_like = Like.query.filter_by(user_id=current_user.id, liked_user_id=liked_user_id).first()
+        if existing_like:
+            return jsonify({"message": "Лайк уже поставлен."})
+
+        new_like = Like(user_id=current_user.id, liked_user_id=liked_user_id)
+        db.session.add(new_like)
+        db.session.commit()
+
+        mutual_like = Like.query.filter_by(user_id=liked_user_id, liked_user_id=current_user.id).first()
+        if mutual_like:
+            return jsonify({"match": True, "message": "У вас совпадение! Теперь вы можете общаться."})
+
+        return jsonify({"match": False, "message": "Лайк отправлен."})
+
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500
+
+
+
+def dislike_profile():
     data = request.get_json()
     user_id = data.get('user_id')
-    liked_user_id = data.get('liked_user_id')
-    if not user_id or not liked_user_id:
-        return jsonify({"error": "User IDs required"}), 400
-    try:
-        query = "INSERT INTO likes (user_id, liked_user_id) VALUES (:user_id, :liked_user_id)"
-        db.engine.execute(query, user_id=user_id, liked_user_id=liked_user_id)
-        query2 = "SELECT id FROM likes WHERE user_id = :liked_user_id AND liked_user_id = :user_id"
-        match = db.engine.execute(query2, liked_user_id=liked_user_id, user_id=user_id).fetchone()
-        if match:
-            return jsonify({"match": True, "message": "У вас совпадение! Теперь вы можете общаться."})
-        else:
-            return jsonify({"match": False, "message": "Лайк отправлен."})
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    disliked_user_id = data.get('disliked_user_id')
+
+    if not user_id or not disliked_user_id:
+        return jsonify({'error': 'Invalid data'}), 400
+
+    # Можно добавить запись в базу, если нужно
+    return jsonify({'message': 'Profile disliked successfully'}), 200
+
+
+def private_chat_func(user_id):
+    # Проверяем, есть ли взаимный лайк между пользователями
+    match = Like.query.filter_by(user_id=current_user.id, liked_user_id=user_id).first() and \
+            Like.query.filter_by(user_id=user_id, liked_user_id=current_user.id).first()
+
+    if not match:
+        flash("Нет совпадения для чата.", "error")
+        return redirect(url_for('relationship'))
+
+    return render_template('private_chat.html', user_id=user_id)
+
+def send_private_message_func():
+    data = request.get_json()
+    receiver_id = data.get('receiver_id')
+    message_text = data.get('message')
+
+    if not message_text:
+        return jsonify({"error": "Сообщение не может быть пустым."}), 400
+
+    message = PrivateMessage(sender_id=current_user.id, receiver_id=receiver_id, message=message_text)
+    db.session.add(message)
+    db.session.commit()
+
+    return jsonify({"status": "ok", "message": "Сообщение отправлено."})
+
+def get_private_messages_func(user_id):
+    messages = PrivateMessage.query.filter(
+        ((PrivateMessage.sender_id == current_user.id) & (PrivateMessage.receiver_id == user_id)) |
+        ((PrivateMessage.sender_id == user_id) & (PrivateMessage.receiver_id == current_user.id))
+    ).order_by(PrivateMessage.timestamp.asc()).all()
+
+    return jsonify([
+        {
+            "sender": msg.sender.first_name,
+            "message": msg.message,
+            "timestamp": msg.timestamp.strftime("%Y-%m-%d %H:%M:%S")
+        } for msg in messages
+    ])
+
+
 
 # Wstrzykiwanie zmiennych konfiguracyjnych do szablonów
 def inject_conf_var():
@@ -140,6 +205,49 @@ def profile_func():
         flash("Profile updated successfully!", 'success')
         return redirect(url_for('profile'))
     return render_template('profile.html', user=current_user)
+
+def save_test_result():
+    try:
+        data = request.get_json()
+        print("Raw received data:", data)
+
+        # Извлекаем данные из 'answers'
+        answers = data.get('answers', {})
+        intention = answers.get('intention')
+        morality = answers.get('morality')
+        marriage = answers.get('marriage')
+
+        print(f"Intention: {intention}, Morality: {morality}, Marriage: {marriage}")
+
+        if not intention or not morality or not marriage:
+            return jsonify({"error": "Все поля обязательны: intention, morality, marriage"}), 400
+
+        if intention == "fun" or morality != "avoid" or marriage != "official":
+            return jsonify({"message": "Вы не подходите для этого сайта."}), 400
+
+        result = TestResult(
+            user_id=current_user.id,
+            intention=intention,
+            morality=morality,
+            marriage=marriage
+        )
+        db.session.add(result)
+        db.session.commit()
+
+        print("Test Result Saved Successfully")
+        return jsonify({"message": "Результат теста успешно сохранен."})
+
+    except Exception as e:
+        db.session.rollback()
+        print("Error saving test result:", e)
+        return jsonify({"error": str(e)}), 500
+
+
+
+    except Exception as e:
+        db.session.rollback()
+        print("Error saving test result:", e)
+        return jsonify({"error": str(e)}), 500
 
 def logout():
     from flask_login import logout_user
@@ -257,7 +365,55 @@ def get_city_coordinates(city_name):
     dummy_cities = {
         "Warsaw": (52.2297, 21.0122),
         "Krakow": (50.0647, 19.9450),
-        "Moscow": (55.7558, 37.6176)
+        "Moscow": (55.7558, 37.6176),
+        "Lodz": (51.7592, 19.4560),
+        "Wroclaw": (51.1079, 17.0385),
+        "Poznan": (52.4064, 16.9252),
+        "Gdansk": (54.3520, 18.6466),
+        "Szczecin": (53.4285, 14.5528),
+        "Bydgoszcz": (53.1235, 18.0084),
+        "Lublin": (51.2465, 22.5684),
+        "Katowice": (50.2649, 19.0238),
+        "Bialystok": (53.1325, 23.1688),
+        "Gdynia": (54.5189, 18.5305),
+        "Czestochowa": (50.8118, 19.1203),
+        "Radom": (51.4027, 21.1471),
+        "Sosnowiec": (50.2863, 19.1041),
+        "Torun": (53.0138, 18.5984),
+        "Kielce": (50.8661, 20.6286),
+        "Gliwice": (50.2945, 18.6714),
+        "Zabrze": (50.3249, 18.7857),
+        "Olsztyn": (53.7784, 20.4801),
+        "Bielsko-Biala": (49.8224, 19.0469),
+        "Rzeszow": (50.0413, 21.9990),
+        "Ruda Slaska": (50.2599, 18.8563),
+        "Rybnik": (50.0971, 18.5419),
+        "Tychy": (50.1372, 18.9664),
+        "Opole": (50.6751, 17.9213),
+        "Gorzow Wielkopolski": (52.7368, 15.2288),
+        "Elblag": (54.1522, 19.4045),
+        "Plock": (52.5468, 19.7064),
+        "Walbrzych": (50.7714, 16.2843),
+        "Wloclawek": (52.6482, 19.0678),
+        "Tarnow": (50.0138, 20.9869),
+        "Chorzow": (50.2976, 18.9546),
+        "Koszalin": (54.1944, 16.1722),
+        "Legnica": (51.2100, 16.1619),
+        "Kalisz": (51.7611, 18.0910),
+        "Grudziadz": (53.4845, 18.7536),
+        "Slupsk": (54.4641, 17.0287),
+        "Jaworzno": (50.2051, 19.2754),
+        "Jastrzebie-Zdroj": (49.9500, 18.6000),
+        "Nowy Sacz": (49.6210, 20.6970),
+        "Konin": (52.2230, 18.2512),
+        "Piotrkow Trybunalski": (51.4056, 19.7034),
+        "Inowroclaw": (52.7982, 18.2634),
+        "Lubin": (51.4009, 16.2027),
+        "Ostrowiec Swietokrzyski": (50.9390, 21.3850),
+        "Glogow": (51.6647, 16.0845),
+        "Siemianowice Slaskie": (50.3007, 19.0291),
+        "Stargard": (53.3369, 15.0500),
+        "Pila": (53.1510, 16.7388)
     }
     return dummy_cities.get(city_name)
 
