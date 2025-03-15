@@ -21,8 +21,8 @@ msgstr ""
 msgid "Faith Project"
 msgstr "Faith Project"
 
-msgid "Добро пожаловать на Faith Project"
-msgstr "Welcome to Faith Project"
+msgid "Добро пожаловать на Faith Way"
+msgstr "Welcome to Faith Way"
 
 msgid "Библия"
 msgstr "Bible"
@@ -84,26 +84,6 @@ msgstr "This website was created with love and the goal of helping all believers
 msgid "Текст Библии"
 msgstr "Bible Text"
 
-msgid "Новый Завет"
-msgstr "New Testament"
-
-msgid "Содержимое раздела"
-msgstr "Section Content"
-
-msgid "Старый Завет"
-msgstr "Old Testament"
-
-msgid "Исход"
-msgstr "Exodus"
-
-msgid "Левит"
-msgstr "Leviticus"
-
-msgid "Числа"
-msgstr "Numbers"
-
-msgid "Второзаконие"
-msgstr "Deuteronomy"
 
 msgid "Расписание мероприятий"
 msgstr "Event Calendar"
@@ -277,6 +257,116 @@ msgstr "Profile picture"
 
 msgid "Короткий тест"
 msgstr "Short test"
+
+msgid "Назад к разделам"
+msgstr "Back to sections"
+
+msgid "Введите сообщение..."
+msgstr "Enter a message..."
+
+msgid "Отправить"
+msgstr "Send"
+
+msgid "Общение и поиск единомышленников"
+msgstr "Communication and finding like-minded people"
+
+msgid "Это не типичный сайт знакомств!"
+msgstr "This is not a typical dating site!"
+
+msgid "При переходе по текущей ссылке вы должны ознакомиться со всеми правилами и пройти короткий тест."
+msgstr "By following this link, you must familiarize yourself with all the rules and take a short test."
+
+msgid "Многократные жалобы → удаление профиля."
+msgstr "Multiple complaints → profile deletion."
+
+msgid "Любите Иисуса и не грешите!"
+msgstr "Love Jesus and do not sin!"
+
+msgid "Серьезные отношения"
+msgstr "Serious relationship"
+
+msgid "Дружеское общение"
+msgstr "Friendly communication"
+
+msgid "Просто развлечение"
+msgstr "Just for fun"
+
+msgid "Все решает только сам человек, не вижу в этом ничего страшного"
+msgstr "Everything is decided by the person themselves, I see nothing wrong with it"
+
+msgid "Избегайте грехов против тела! Любой другой грех человек совершает вне своего тела, но тот, кто совершает грех блуда, грешит против собственного тела."
+msgstr "Flee fornication. Every sin that a man doeth is without the body; but he that committeth fornication sinneth against his own body."
+
+msgid "У вас совпадение! Перейдите в чат, чтобы начать общение."
+msgstr "You have a match! Go to the chat to start a conversation."
+
+msgid "Перейти в чат"
+msgstr "Go to chat"
+
+msgid "права защищены."
+msgstr "All rights reserved."
+
+msgid "Вы не подходите для этого сайта."
+msgstr "You are not suitable for this site."
+
+msgid "Нет доступных анкет"
+msgstr "No profiles available"
+
+msgid "Нет больше анкет"
+msgstr "No more profiles"
+
+msgid "Ошибка загрузки анкет:"
+msgstr "Error loading profiles:"
+
+msgid "Ошибка сохранения результата теста:"
+msgstr "Error saving test result:"
+
+msgid "Ошибка отправки лайка:"
+msgstr "Error sending like:"
+
+msgid "У вас совпадение! Теперь вы можете общаться."
+msgstr "You have a match! Now you can chat."
+
+msgid "Город"
+msgstr "City"
+
+msgid "Возраст"
+msgstr "Age"
+
+msgid "Мой личный чат"
+msgstr "My private chat"
+
+msgid "Загрузить фото"
+msgstr "Upload photo"
+
+msgid "Брак безусловно важен, но ничего страшного нет, чтобы жить вместе перед свадьбой и спать"
+msgstr "Marriage is certainly important, but there is nothing wrong with living together and sleeping together before marriage."
+
+msgid "Поэтому мужчина оставит своих отца и мать, чтобы быть вместе со своей женой, и они станут одним целым."
+msgstr "Therefore a man shall leave his father and mother and be joined to his wife, and they shall become one flesh."
+
+msgid "Личный чат"
+msgstr "Private chat"
+
+msgid "Неуважение к другим пользователям приведёт к блокировке."
+msgstr "Disrespect towards other users will lead to blocking."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

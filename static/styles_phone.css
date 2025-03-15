@@ -1,0 +1,54 @@
+/* Media query for screens with width <= 768px */
+@media (max-width: 768px) {
+    .community-section ul {
+        gap: 15px;
+    }
+
+    .community-section ul li a {
+        padding: 15px 30px;
+        font-size: 18px;
+        max-width: 100%;
+    }
+
+    .community-section h2 {
+        font-size: 1.8em;
+    }
+
+    .hero img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Additional rules for chat, forms, images, etc. */
+    /* Set smaller widths/heights for #profile-pic, etc. */
+
+    /* #profile-pic adjustments */
+    #profile-pic {
+        /* For smaller screens, reduce size */
+        width: 150px; /* phone-friendly width */
+        height: 150px;
+    }
+
+    /* Chat container adjustments */
+    .chat-container {
+        padding: 10px; /* some spacing if needed */
+    }
+}
+
+/* Media query for even smaller screens, e.g. width <= 480px */
+@media (max-width: 480px) {
+    /* #profile-pic phone-friendly */
+    #profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Possibly reduce font sizes further */
+    body {
+        font-size: 14px;
+    }
+    .message-text {
+        font-size: 13px;
+    }
+}
+

@@ -24,12 +24,21 @@ function fetchMessages() {
             const chatBox = document.getElementById("chat-box");
             const userLang = document.getElementById("current-lang").value;
             chatBox.innerHTML = "";
+
             data.forEach(msg => {
                 const needsTranslation = msg.lang && msg.lang !== userLang;
+                // Здесь мы выводим время (msg.timestamp) СВЕРХУ сообщения
                 chatBox.innerHTML += `
                     <div class="message">
+                        <div class="timestamp" style="display: block; margin-bottom: 5px; color: #888;">
+                            ${msg.timestamp}
+                        </div>
                         <p>${msg.user}: ${msg.message}</p>
-                        ${needsTranslation ? `<button class="translate-btn" data-id="${msg.id}">Перевести</button>` : ""}
+                        ${
+                            needsTranslation
+                            ? `<button class="translate-btn" data-id="${msg.id}">Перевести</button>`
+                            : ""
+                        }
                     </div>
                 `;
             });
@@ -41,6 +50,9 @@ function fetchMessages() {
                     translateMessage(messageId, userLang);
                 });
             });
+        })
+        .catch(error => {
+            console.error("Ошибка при загрузке сообщений:", error);
         });
 }
 
@@ -61,7 +73,8 @@ function sendMessage() {
             } else {
                 alert('Ошибка: ' + result.message);
             }
-        });
+        })
+        .catch(error => console.error("Ошибка при отправке сообщения:", error));
     }
 }
 

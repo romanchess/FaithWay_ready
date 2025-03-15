@@ -156,10 +156,10 @@ def dating_profiles():
 def like_profile_route():
     return like_profile_func()
 
-@app.route("/private_chat/<int:user_id>")
+@app.route('/private_chat/<int:user_id>')
 @login_required
 def private_chat(user_id):
-    return private_chat_func(user_id)
+       return render_template('private_chat.html', user_id=user_id)
 
 @app.route("/send_private_message", methods=["POST"])
 @login_required

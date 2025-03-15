@@ -3,6 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import date, datetime
+from datetime import datetime
+
 
 # Inicjalizacja bazy danych
 db = SQLAlchemy()
@@ -44,9 +46,6 @@ class TestResult(db.Model):
     morality = db.Column(db.String(100), nullable=False)
     marriage = db.Column(db.String(100), nullable=False)
 
-
-from datetime import datetime
-from models import db, User
 
 class PrivateMessage(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -19,11 +19,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-msgid "Faith Project"
-msgstr "Faith Project"
+msgid "Добро пожаловать на Faith Way"
+msgstr "Witamy na Faith Way"
 
-msgid "Добро пожаловать на Faith Project"
-msgstr "Witamy w Faith Project"
 
 msgid "Библия"
 msgstr "Biblia"
@@ -85,26 +83,6 @@ msgstr "Ta strona została stworzona z miłością i celem pomocy wszystkim wier
 msgid "Текст Библии"
 msgstr "Tekst Biblii"
 
-msgid "Новый Завет"
-msgstr "Nowy Testament"
-
-msgid "Содержимое раздела"
-msgstr "Zawartość rozdziału"
-
-msgid "Старый Завет"
-msgstr "Stary Testament"
-
-msgid "Исход"
-msgstr "Wyjście"
-
-msgid "Левит"
-msgstr "Księga Kapłańska"
-
-msgid "Числа"
-msgstr "Księga Liczb"
-
-msgid "Второзаконие"
-msgstr "Księga Powtórzonego Prawa"
 
 msgid "Расписание мероприятий"
 msgstr "Kalendarz wydarzeń"
@@ -294,6 +272,116 @@ msgstr "Brak szacunku wobec innych użytkowników skutkuje zablokowaniem"
 
 msgid "Короткий тест"
 msgstr "Krótki test"
+
+msgid "Назад к разделам"
+msgstr "Wróć do sekcji"
+
+msgid "Введите сообщение..."
+msgstr "Wpisz wiadomość..."
+
+msgid "Отправить"
+msgstr "Wyślij"
+
+msgid "Общение и поиск единомышленников"
+msgstr "Rozmowy i szukanie osób o podobnych poglądach"
+
+msgid "Это не типичный сайт знакомств!"
+msgstr "To nie jest typowy portal randkowy!"
+
+msgid "При переходе по текущей ссылке вы должны ознакомиться со всеми правилами и пройти короткий тест."
+msgstr "Przechodząc pod ten link, musisz zapoznać się ze wszystkimi zasadami i przejść krótki test."
+
+msgid "Многократные жалобы → удаление профиля."
+msgstr "Wielokrotne zgłoszenia → usunięcie profilu."
+
+msgid "Любите Иисуса и не грешите!"
+msgstr "Kochajcie Jezusa i nie grzeszcie!"
+
+msgid "Серьезные отношения"
+msgstr "Poważny związek"
+
+msgid "Дружеское общение"
+msgstr "Przyjacielskie relacje"
+
+msgid "Просто развлечение"
+msgstr "Tylko zabawa"
+
+msgid "Избегайте грехов против тела! Любой другой грех человек совершает вне своего тела, но тот, кто совершает грех блуда, грешит против собственного тела."
+msgstr "Uciekajcie przed rozpustą! Wszelki grzech, który popełnia człowiek, jest poza ciałem, kto zaś grzeszy rozpustą, przeciwko własnemu ciału grzeszy."
+
+msgid "Все решает только сам человек, не вижу в этом ничего страшного"
+msgstr "Wszystko zależy tylko od osoby, nie widzę w tym nic złego"
+
+msgid "У вас совпадение! Перейдите в чат, чтобы начать общение."
+msgstr "Masz dopasowanie! Przejdź do czatu, aby rozpocząć rozmowę."
+
+msgid "Перейти в чат"
+msgstr "Przejdź do czatu"
+
+msgid "права защищены."
+msgstr "Wszelkie prawa zastrzeżone."
+
+msgid "Вы не подходите для этого сайта."
+msgstr "Nie pasujesz do tej strony."
+
+msgid "Нет доступных анкет"
+msgstr "Brak dostępnych profili"
+
+msgid "Нет больше анкет"
+msgstr "Brak więcej profili"
+
+msgid "Ошибка загрузки анкет:"
+msgstr "Błąd ładowania profili:"
+
+msgid "Ошибка сохранения результата теста:"
+msgstr "Błąd zapisywania wyniku testu:"
+
+msgid "Ошибка отправки лайка:"
+msgstr "Błąd wysyłania polubienia:"
+
+msgid "У вас совпадение! Теперь вы можете общаться."
+msgstr "Masz dopasowanie! Teraz możecie rozmawiać."
+
+msgid "Город"
+msgstr "Miasto"
+
+msgid "Возраст"
+msgstr "Wiek"
+
+msgid "Мой личный чат"
+msgstr "Mój prywatny czat"
+
+msgid "Загрузить фото"
+msgstr "Prześlij zdjęcie"
+
+msgid "Брак безусловно важен, но ничего страшного нет, чтобы жить вместе перед свадьбой и спать"
+msgstr "Małżeństwo jest bez wątpienia ważne, ale nie ma nic złego we wspólnym zamieszkaniu przed ślubem i współżyciu."
+
+msgid "Поэтому мужчина оставит своих отца и мать, чтобы быть вместе со своей женой, и они станут одним целым."
+msgstr "Dlatego mężczyzna opuści ojca i matkę, aby być ze swoją żoną, i staną się jednym ciałem."
+
+msgid "Личный чат"
+msgstr "Prywatny czat"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

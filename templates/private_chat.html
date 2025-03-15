@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ _('Чат') }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">   
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles_phone.css') }}">
+  
 </head>
 <body>
 
@@ -29,7 +31,7 @@
     const sendButton = document.getElementById('send-btn');
     const messagesDiv = document.getElementById('messages');
 
-    // Загрузка сообщений
+    
     async function loadMessages() {
         try {
             const response = await fetch(`/get_private_messages/${receiverId}`);
@@ -45,11 +47,11 @@
             });
             messagesDiv.scrollTop = messagesDiv.scrollHeight;
         } catch (error) {
-            console.error('Ошибка загрузки сообщений:', error);
+            console.error('Error loading messages:', error);
         }
     }
 
-    // Отправка сообщения
+    
     async function sendMessage() {
         const messageText = messageInput.value.trim();
         if (messageText === '') return;
@@ -66,28 +68,28 @@
                 messageInput.value = '';
                 loadMessages();
             } else {
-                console.error('Ошибка отправки сообщения:', result.error);
+                console.error('Error geting message:', result.error);
             }
         } catch (error) {
-            console.error('Ошибка отправки сообщения:', error);
+            console.error('Error sending message::', error);
         }
     }
 
-    // Обработчик кнопки
+  
     sendButton.addEventListener('click', sendMessage);
 
-    // Отправка по Enter
+
     messageInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
             sendMessage();
         }
     });
 
-    // Загрузка сообщений при загрузке страницы
+   
     loadMessages();
 
-    // Автоматическое обновление каждые 5 секунд
-    setInterval(loadMessages, 5000);
+  
+    setInterval(loadMessages, 2000);
 </script>
 
 </body>

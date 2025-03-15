@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ _('Личный кабинет') }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles_phone.css') }}">
+
 </head>
 <body>
 <header>
   <div class="header-container">
     <h1>{{ _('Личный кабинет') }}</h1>
 
-    <nav aria-label="Основное меню">
+    <nav aria-label="{{ _('Основное меню') }}">
+
       <ul>
         <li><a href="{{ url_for('home', lang=get_locale()) }}">{{ _('Главная') }}</a></li>
         <li><a href="{{ url_for('groups', lang=get_locale()) }}">{{ _('Сообщество и знакомства') }}</a></li>
@@ -33,6 +36,12 @@
 </header>
   
   <main>
+<a href="{{ url_for('private_chat', user_id=current_user.id) }}">
+    {{ _('Мой личный чат') }}
+</a>
+
+
+
     <div class="profile-container">
       <h2>{{ user.first_name }} {{ user.last_name }}</h2>
       <p><strong>{{ _('Возраст') }}:</strong> {{ user.get_age() }}</p>
@@ -40,7 +49,7 @@
       
       <!-- Фото профиля -->
       <div class="profile-image">
-        <img src="{{ url_for('static', filename='user_photos/' + user.profile_picture) }}" alt="Profile Picture">
+        <img id="profile-pic" src="{{ url_for('static', filename='user_photos/' + user.profile_picture) }}" alt="Profile Picture">
       </div>
       
       <form method="POST" action="{{ url_for('profile') }}" enctype="multipart/form-data">

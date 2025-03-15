@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const marriage = marriageAnswer?.value;
 
         if (!intention || !morality || !marriage) {
-            alert("Пожалуйста, заполните все поля теста.");
+            alert("Please fill in all test fields.");
             return;
         }
 
@@ -131,7 +131,7 @@ async function loadMessages() {
         });
         messagesDiv.scrollTop = messagesDiv.scrollHeight;
     } catch (error) {
-        console.error('Ошибка загрузки сообщений:', error);
+        console.error('Error loading messages:', error);
     }
 }
 
