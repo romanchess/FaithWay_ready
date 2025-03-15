@@ -8,7 +8,6 @@ from models import db, User
 from functions import (
     allowed_file,
     get_dating_profiles,
-    like_profile_func,
     inject_conf_var,
     set_language,
     send_message,
@@ -18,7 +17,8 @@ from functions import (
     logout,
     get_locale,
     profile_func,
-    load_bible_content
+    load_bible_content,
+    like_profile_func
 )
 import os
 
@@ -145,7 +145,7 @@ def dating_profiles():
 
 @app.route("/like_profile", methods=["POST"])
 def like_profile_route():
-    return like_profile()
+    return like_profile_func()
 
 if __name__ == "__main__":
     with app.app_context():
