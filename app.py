@@ -91,7 +91,6 @@ def chat():
     return render_template("chat.html", user=current_user)
 
 @app.route("/events")
-@login_required
 def events():
     return render_template("events.html", title="Мероприятия")
 
