@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request, flash, jsonify, current_app
+from flask import Flask, render_template, redirect, url_for, request, flash, jsonify, current_app, Response
 from flask_sqlalchemy import SQLAlchemy
 from flask_babel import Babel, _
 from flask_login import LoginManager, login_required, current_user, login_user, logout_user
@@ -26,6 +26,7 @@ from functions import (
     save_test_result
 )
 import os
+import json
 
 class Config:
     SECRET_KEY = "your_secret_key_here"
@@ -77,13 +78,18 @@ def home():
 def bible():
     return render_template("bible.html", title="Библия")
 
+
 @app.route('/bible/content')
 def bible_content():
     lang = request.args.get('lang', 'ru')
-    bible_data = load_bible_content(lang)
+    content = load_bible_content(lang)
 
-    if bible_data:
-        return jsonify(bible_data)
+    if content:
+        # Возвращаем JSON без экранирования кириллицы
+        return Response(
+            json.dumps(content, ensure_ascii=False),
+            content_type='application/json; charset=utf-8'
+        )
     else:
         return jsonify({"error": "Файл не найден"}), 404
 

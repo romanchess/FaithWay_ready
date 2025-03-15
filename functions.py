@@ -14,11 +14,15 @@ import logging
 
 
 def load_bible_content(lang):
-    bible_file = os.path.join('static', 'bible', f'Bible_{lang}.json')
+    base_dir = os.path.abspath(os.path.dirname(__file__))
+    bible_file = os.path.join(base_dir, 'static', 'bible', f'Biblia_{lang}.json')
+    print(f"Looking for file at: {bible_file}")  # Проверка пути
+
     if os.path.exists(bible_file):
         with open(bible_file, 'r', encoding='utf-8') as f:
             return json.load(f)
     else:
+        print("File not found!")
         return None
 
 
