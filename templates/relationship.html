@@ -3,107 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Знакомства в вере</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>{{ _('Знакомства, основанные на ценностях и отношения') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div id="popup" class="popup">
-        <div class="popup-content">
-            <h2>Это не типичный сайт знакомств!</h2>
-            <p>При переходе по текущей ссылке вы должны ознакомиться со всеми правилами и пройти короткий тест.</p>
-            <p><b>Основные правила:</b></p>
-            <ul>
-                <li>Только серьёзные намерения или дружеское общение.</li>
-                <li>Неуважение к другим пользователям приведёт к блокировке.</li>
-                <li>Многократные жалобы → удаление профиля.</li>
-                <li>Любите Иисуса и не грешите!</li>
-            </ul>
-            <button id="startTest">Пройти тест</button>
-        </div>
-    </div>
 
-    <div id="test" class="test hidden">
-        <div class="test-content">
-            <h2>Короткий тест</h2>
-            <p>Каковы ваши намерения на этом сайте?</p>
-            <select id="testAnswer">
-                <option value="serious">Серьезные отношения</option>
-                <option value="friendship">Дружеское общение</option>
-                <option value="fun">Просто развлечение</option>
-            </select>
-            <button id="submitTest">Отправить</button>
-        </div>
-    </div>
+    <header>
+        <h1>{{ _('Знакомства, основанные на ценностях и отношения') }}</h1>
+    </header>
 
-    <div id="dating-section" class="hidden">
-        <h2>Анкеты</h2>
-        <div id="profile-container">
-            <div id="profile-card" class="profile-card">
-                <img id="profile-pic" src="" alt="Фото профиля">
-                <h3 id="profile-name"></h3>
-                <p id="profile-city"></p>
-                <p id="profile-age"></p>
-                <button id="like">❤️ Нравится</button>
-                <button id="dislike">⏭️ Дальше</button>
+    <main class="container">
+
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <h2>{{ _('Это не типичный сайт знакомств!') }}</h2>
+                <p>{{ _('При переходе по текущей ссылке вы должны ознакомиться со всеми правилами и пройти короткий тест.') }}</p>
+                <p><b>{{ _('Основные правила:') }}</b></p>
+                <ul>
+                    <li>{{ _('Только серьёзные намерения или дружеское общение.') }}</li>
+                    <li>{{ _('Неуважение к другим пользователям приведёт к блокировке.') }}</li>
+                    <li>{{ _('Многократные жалобы → удаление профиля.') }}</li>
+                    <li>{{ _('Любите Иисуса и не грешите!') }}</li>
+                </ul>
+                <button id="startTest">{{ _('Пройти тест') }}</button>
             </div>
         </div>
-    </div>
+
+        <div id="test" class="test hidden">
+            <div class="test-content">
+                <h2>{{ _('Короткий тест') }}</h2>
+                <p>{{ _('Каковы ваши намерения на этом сайте?') }}</p>
+                <select id="testAnswer">
+                    <option value="serious">{{ _('Серьезные отношения') }}</option>
+                    <option value="friendship">{{ _('Дружеское общение') }}</option>
+                    <option value="fun">{{ _('Просто развлечение') }}</option>
+                </select>
+
+                <p>{{ _('Что Библия говорит о блуде?') }}</p>
+                <select id="moralityAnswer">
+                    <option value="good">{{ _('Это хорошо и приятно') }}</option>
+                    <option value="neutral">{{ _('Все решает только сам человек, не вижу в этом ничего страшного') }}</option>
+                    <option value="avoid">{{ _('Избегайте грехов против тела! Любой другой грех человек совершает вне своего тела, но тот, кто совершает грех блуда, грешит против собственного тела.') }}</option>
+                </select>
+
+                <p>{{ _('Что Библия говорит о браке и почему это важно?') }}</p>
+                <select id="marriageAnswer">
+                    <option value="none">{{ _('В Библии ничего нет об этом') }}</option>
+                    <option value="neutral">{{ _('Брак безусловно важен, но ничего страшного нет, чтобы жить вместе перед свадьбой и спать') }}</option>
+                    <option value="official">{{ _('Поэтому мужчина оставит своих отца и мать, чтобы быть вместе со своей женой, и они станут одним целым.') }}</option>
+                </select>
+
+                <button id="submitTest">{{ _('Отправить') }}</button>
+            </div>
+        </div>
+
+        <div id="dating-section" class="hidden">
+            <h2>{{ _('Анкеты') }}</h2>
+            <div id="profile-container">
+                <div id="profile-card" class="profile-card">
+                    <img id="profile-pic" src="" alt="{{ _('Фото профиля') }}">
+                    <h3 id="profile-name"></h3>
+                    <p id="profile-city"></p>
+                    <p id="profile-age"></p>
+                    <button id="like">❤️ {{ _('Нравится') }}</button>
+                    <button id="dislike">⏭️ {{ _('Дальше') }}</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="match-notification" class="hidden">
+            <p>{{ _('У вас совпадение! Перейдите в чат, чтобы начать общение.') }}</p>
+            <a id="chat-link" href="">{{ _('Перейти в чат') }}</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2025 {{ _('права защищены.') }}</p>
+    </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const popup = document.getElementById("popup");
-            const test = document.getElementById("test");
-            const datingSection = document.getElementById("dating-section");
-            const startTest = document.getElementById("startTest");
-            const submitTest = document.getElementById("submitTest");
-            const testAnswer = document.getElementById("testAnswer");
-            
-            popup.style.display = "block";
-            
-            startTest.addEventListener("click", () => {
-                popup.style.display = "none";
-                test.style.display = "block";
-            });
-
-            submitTest.addEventListener("click", () => {
-                if (testAnswer.value === "fun") {
-                    alert("Вы не подходите для этого сайта.");
-                } else {
-                    test.style.display = "none";
-                    datingSection.style.display = "block";
-                    loadProfiles();
-                }
-            });
-        });
-
-        function loadProfiles() {
-            fetch('/get_dating_profiles?user_id=1')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.length > 0) {
-                        showProfile(data, 0);
-                    } else {
-                        document.getElementById("profile-container").innerHTML = "<p>Нет доступных анкет</p>";
-                    }
-                });
-        }
-
-        function showProfile(profiles, index) {
-            if (index >= profiles.length) {
-                document.getElementById("profile-container").innerHTML = "<p>Анкеты закончились!</p>";
-                return;
-            }
-            const profile = profiles[index];
-            document.getElementById("profile-pic").src = profile.profile_picture;
-            document.getElementById("profile-name").innerText = profile.name;
-            document.getElementById("profile-city").innerText = "Город: " + profile.city;
-            document.getElementById("profile-age").innerText = "Возраст: " + profile.age;
-            
-            document.getElementById("like").onclick = () => showProfile(profiles, index + 1);
-            document.getElementById("dislike").onclick = () => showProfile(profiles, index + 1);
-        }
+        const currentUserId = {{ current_user.id }};
+        const translations = {
+            notSuitable: "{{ _('Вы не подходите для этого сайта.') }}",
+            noProfiles: "{{ _('Нет доступных анкет') }}",
+            noMoreProfiles: "{{ _('Нет больше анкет') }}",
+            errorLoadingProfiles: "{{ _('Ошибка загрузки анкет:') }}",
+            errorSavingTest: "{{ _('Ошибка сохранения результата теста:') }}",
+            errorSendingLike: "{{ _('Ошибка отправки лайка:') }}",
+            matchFound: "{{ _('У вас совпадение! Теперь вы можете общаться.') }}",
+            city: "{{ _('Город') }}",
+            age: "{{ _('Возраст') }}"
+        };
     </script>
+    <script defer src="{{ url_for('static', filename='relationship.js') }}"></script>
+
 </body>
 </html>
 

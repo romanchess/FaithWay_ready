@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-20 09:13+0100\n"
+"POT-Creation-Date: 2025-03-14 12:53+0100\n"
 "PO-Revision-Date: 2025-02-20 09:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,31 +19,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: multilinguale.py:30
-msgid "Faith Project"
-msgstr "Проект Веры"
+#~ msgid "Faith Project"
+#~ msgstr "Проект Веры"
 
-#: multilinguale.py:30
-msgid "Добро пожаловать на Faith Project"
-msgstr "Добро пожаловать на Faith Project"
+#~ msgid "Добро пожаловать на Faith Project"
+#~ msgstr "Добро пожаловать на Faith Project"
 
-#: multilinguale.py:34
-msgid "Библия"
-msgstr "Библия"
+#~ msgid "Библия"
+#~ msgstr "Библия"
 
-#: multilinguale.py:38
-msgid "Группы"
-msgstr "Группы"
+#~ msgid "Группы"
+#~ msgstr "Группы"
 
-#: multilinguale.py:42
-msgid "Мероприятия"
-msgstr "Мероприятия"
+#~ msgid "Мероприятия"
+#~ msgstr "Мероприятия"
 
-#: multilinguale.py:46
-msgid "О нас"
-msgstr "О нас"
+#~ msgid "О нас"
+#~ msgstr "О нас"
 
-#: templates/project.html:19
-msgid "Главная"
-msgstr "Главная"
+#~ msgid "Главная"
+#~ msgstr "Главная"
 

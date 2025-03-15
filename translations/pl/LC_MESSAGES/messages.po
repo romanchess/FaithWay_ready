@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-20 09:13+0100\n"
+"POT-Creation-Date: 2025-03-14 12:53+0100\n"
 "PO-Revision-Date: 2025-02-20 09:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: pl\n"
@@ -19,33 +19,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: multilinguale.py:30
 msgid "Faith Project"
 msgstr "Faith Project"
 
-#: multilinguale.py:30
 msgid "Добро пожаловать на Faith Project"
 msgstr "Witamy w Faith Project"
 
-#: multilinguale.py:34
 msgid "Библия"
 msgstr "Biblia"
 
-#: multilinguale.py:38
 msgid "Группы"
 msgstr "Grupy"
 
-#: multilinguale.py:42
 msgid "Мероприятия"
-msgstr "Wydarzenia" 
+msgstr "Wydarzenia"
 
-#: multilinguale.py:46
 msgid "О нас"
 msgstr "O nas"
 
-#: templates/project.html:19
 msgid "Главная"
 msgstr "Strona główna"
+
 msgid "Добро пожаловать на этот сайт!"
 msgstr "Witamy na tej stronie!"
 
@@ -69,20 +63,24 @@ msgstr "Wsparcie projektu — opowiedz o nim swoim przyjaciołom!"
 
 msgid "Здесь вы найдете Библию, ссылки на группы верующих и информацию о предстоящих мероприятиях."
 msgstr "Tutaj znajdziesz Biblię, linki do grup wierzących i informacje o nadchodzących wydarzeniach."
+
 msgid "Все права защищены."
 msgstr "Wszelkie prawa zastrzeżone."
 
 msgid "Создатель сайта:"
 msgstr "Twórca strony:"
+
 msgid "Контактный email:"
-msgstr " E-mail"
+msgstr "E-mail"
+
 msgid "Мой Telegram:"
 msgstr "Mój Telegram:"
-msgid "Город: <strong>Катовице"
-msgstr " Miasto: <strong> Katowice"
+
+msgid "Город:"
+msgstr "Miasto:"
+
 msgid "Этот сайт был создан с любовью и целью помочь всем верующим людям быть ближе к Богу и друг другу. Мы верим, что этот проект станет хорошей платформой для общения, изучения Писания и развития духовной жизни."
 msgstr "Ta strona została stworzona z miłością i celem pomocy wszystkim wierzącym ludziom w byciu bliżej Boga i siebie nawzajem. Wierzymy, że ten projekt stanie się dobrą platformą do wspólnej modlitwy, studiowania Pisma Świętego i rozwoju duchowego życia."
-
 
 msgid "Текст Библии"
 msgstr "Tekst Biblii"
@@ -108,22 +106,203 @@ msgstr "Księga Liczb"
 msgid "Второзаконие"
 msgstr "Księga Powtórzonego Prawa"
 
-
-
-msgid "Мероприятия"
-msgstr "Wydarzenia"
-
 msgid "Расписание мероприятий"
 msgstr "Kalendarz wydarzeń"
-
-msgid "Группы"
-msgstr "Grupy"
 
 msgid "Список групп"
 msgstr "Lista Grup"
 
 msgid "Открыть Библию"
-msgstr "Otwórz Biblię"
+msgstr "Otwórz Bibliię"
+
+msgid "Личный кабинет"
+msgstr "Panel osobisty"
+
+msgid "Выход"
+msgstr "Wyloguj się"
+
+msgid "Регистрация"
+msgstr "Rejestracja"
+
+msgid "Вход"
+msgstr "Logowanie"
+
+msgid "Сообщество и знакомства"
+msgstr "Społeczność i znajomości"
+
+msgid "Доступные разделы"
+msgstr "Dostępne sekcje"
+
+msgid "Общий чат"
+msgstr "Czat ogólny"
+
+msgid "Дружба и поддержка"
+msgstr "Przyjaźń i duchowe wsparcie"
+
+msgid "Знакомства, основанные на ценностях и отношения"
+msgstr "Znajomości oparte na wartościach i relacje"
+
+msgid "Страница входа"
+msgstr "Strona logowania"
+
+msgid "Электронная почта или номер телефона"
+msgstr "Adres e-mail lub numer telefonu"
+
+msgid "Пароль"
+msgstr "Hasło"
+
+msgid "Еще нет аккаунта?"
+msgstr "Nie masz jeszcze konta?"
+
+msgid "Возраст"
+msgstr "Wiek"
+
+msgid "Пол"
+msgstr "Płeć"
+
+msgid "Мужской"
+msgstr "Mężczyzna"
+
+msgid "Женский"
+msgstr "Kobieta"
+
+msgid "Фото профиля"
+msgstr "Zdjęcie profilowe"
+
+msgid "Город"
+msgstr "Miasto"
+
+msgid "О себе"
+msgstr "O sobie"
+
+msgid "Сохранить изменения"
+msgstr "Zapisz zmiany"
+
+msgid "Имя"
+msgstr "Imię"
+
+msgid "Фамилия"
+msgstr "Nazwisko"
+
+msgid "Пароль"
+msgstr "Hasło"
+
+msgid "минимум 8 символов"
+msgstr "minimum 8 znaków"
+
+msgid "Повторите пароль"
+msgstr "Powtórz hasło"
+
+msgid "Электронная почта"
+msgstr "Adres e-mail"
+
+msgid "Номер телефона"
+msgstr "Numer telefonu"
+
+msgid "минимум 8 символов"
+msgstr "minimum 8 znaków"
+
+msgid "Дата рождения"
+msgstr "Data urodzenia"
+
+msgid "Это хорошо и приятно"
+msgstr "To jest dobre i przyjemne"
+
+msgid "Все решает только сам человек, не Библия"
+msgstr "Wszystko zależy tylko od samego człowieka"
+
+msgid "В Библии ничего нет об этом"
+msgstr "Biblia nic o tym nie mówi"
+
+msgid "Анкеты"
+msgstr "Profile użytkowników"
+
+msgid "Нравится"
+msgstr "Podoba się"
+
+msgid "Дальше"
+msgstr "Dalej"
+
+msgid "Отправить"
+msgstr "Wyślij"
+
+msgid "Это не типичный сайт"
+msgstr "To nie jest typowy portal"
+
+msgid "Каковы ваши намерения на этом сайте?"
+msgstr "Jakie masz zamiary na tej stronie?"
+
+msgid "Серьёзные намерения или дружеское общение"
+msgstr "Poważne zamiary lub znajomości koleżeńskie"
+
+msgid "Только серьёзные намерения или дружеское общение."
+msgstr "Tylko poważne zamiary lub znajomości koleżeńskie."
+
+msgid "Неуважение к другим пользователям приведёт к блокировке."
+msgstr "Brak szacunku wobec innych użytkowników skutkuje zablokowaniem konta."
+
+msgid "Что Библия говорит о блуде?"
+msgstr "Co Biblia mówi o cudzołóstwie?"
+
+msgid "Избегайте блуда и разврата"
+msgstr "Unikajcie rozpusty i nieczystości"
+
+msgid "Это хорошо и приятно"
+msgstr "To dobre i przyjemne"
+
+msgid "Все решает только сам человек, не Библия"
+msgstr "Wszystko zależy tylko od człowieka, nie od Biblii"
+
+msgid "Избегайте блуда и разврата"
+msgstr "Unikajcie rozpusty i niemoralności"
+
+msgid "Что Библия говорит о браке и почему это важно?"
+msgstr "Co Biblia mówi o małżeństwie i dlaczego to jest ważne?"
+
+msgid "Брак — союз перед Богом"
+msgstr "Małżeństwo to związek przed Bogiem"
+
+msgid "Основные правила:"
+msgstr "Podstawowe zasady:"
+
+msgid "Пройти тест"
+msgstr "Rozpocznij test"
+
+msgid "Короткий тест"
+msgstr "Krótki test"
+
+msgid "Фото профиля"
+msgstr "Zdjęcie profilowe"
+
+msgid "Каковы ваши намерения на этом сайте?"
+msgstr "Jakie są Twoje zamiary na tej stronie?"
+
+msgid "Что Библия говорит о блуде?"
+msgstr "Co Biblia mówi o rozpuście?"
+
+msgid "Что Библия говорит о браке и почему это важно?"
+msgstr "Co Biblia mówi o małżeństwie i dlaczego jest to ważne?"
+
+msgid "Отправить"
+msgstr "Wyślij"
+
+msgid "Короткий тест"
+msgstr "Krótki test"
+
+msgid "Неуважение к другим пользователям приведёт к блокировке"
+msgstr "Brak szacunku wobec innych użytkowników skutkuje zablokowaniem"
+
+msgid "Короткий тест"
+msgstr "Krótki test"
+
+
+
+
+
+
+
+
+
 
 
 

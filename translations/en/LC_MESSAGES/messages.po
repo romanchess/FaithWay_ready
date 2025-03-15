@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-02-20 09:13+0100\n"
+"POT-Creation-Date: 2025-03-14 12:53+0100\n"
 "PO-Revision-Date: 2025-02-20 09:14+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,33 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: multilinguale.py:30
 msgid "Faith Project"
 msgstr "Faith Project"
 
-#: multilinguale.py:30
 msgid "Добро пожаловать на Faith Project"
 msgstr "Welcome to Faith Project"
 
-#: multilinguale.py:34
 msgid "Библия"
 msgstr "Bible"
 
-#: multilinguale.py:38
 msgid "Группы"
 msgstr "Groups"
 
-#: multilinguale.py:42
 msgid "Мероприятия"
 msgstr "Events"
 
-#: multilinguale.py:46
 msgid "О нас"
 msgstr "About Us"
 
-#: templates/project.html:19
 msgid "Главная"
 msgstr "General"
+
 msgid "Добро пожаловать на этот сайт!"
 msgstr "Welcome to this site!"
 
@@ -68,8 +62,10 @@ msgstr "Support the project — tell your friends about it!"
 
 msgid "Здесь вы найдете Библию, ссылки на группы верующих и информацию о предстоящих мероприятиях."
 msgstr "Here you will find the Bible, links to believers' groups, and information about upcoming events."
+
 msgid "Все права защищены."
 msgstr "All rights reserved."
+
 msgid "Создатель сайта:"
 msgstr "Website creator:"
 
@@ -79,8 +75,8 @@ msgstr "Contact email:"
 msgid "Мой Telegram:"
 msgstr "My Telegram:"
 
-msgid "Город: <strong>Катовице"
-msgstr "City: <strong>Katowice"
+msgid "Город:"
+msgstr "City:"
 
 msgid "Этот сайт был создан с любовью и целью помочь всем верующим людям быть ближе к Богу и друг другу. Мы верим, что этот проект станет хорошей платформой для общения, изучения Писания и развития духовной жизни."
 msgstr "This website was created with love and the goal of helping all believers be closer to God and to each other. We believe that this project will become a good platform for fellowship, Bible study, and the development of spiritual life."
@@ -109,21 +105,189 @@ msgstr "Numbers"
 msgid "Второзаконие"
 msgstr "Deuteronomy"
 
-
-msgid "Мероприятия"
-msgstr "Events"
-
 msgid "Расписание мероприятий"
 msgstr "Event Calendar"
-
-msgid "Группы"
-msgstr "Groups"
 
 msgid "Список групп"
 msgstr "List of Groups"
 
 msgid "Открыть Библию"
 msgstr "Open the Bible"
+
+msgid "Личный кабинет"
+msgstr "Personal account"
+
+msgid "Выход"
+msgstr "Logout"
+
+msgid "Регистрация"
+msgstr "Registration"
+
+msgid "Вход"
+msgstr "Login"
+
+msgid "Сообщество и знакомства"
+msgstr "Community and acquaintances"
+
+
+msgid "Доступные разделы"
+msgstr "Available sections"
+
+msgid "Общий чат"
+msgstr "General chat"
+
+msgid "Дружба и поддержка"
+msgstr "Friendship and encouragement"
+
+msgid "Знакомства, основанные на ценностях и отношения"
+msgstr "Connections based on values and relationships"
+
+msgid "Страница входа"
+msgstr "Login page"
+
+msgid "Электронная почта или номер телефона"
+msgstr "Email or phone number"
+
+msgid "Пароль"
+msgstr "Password"
+
+msgid "Еще нет аккаунта?"
+msgstr "Don't have an account yet?"
+
+msgid "Возраст"
+msgstr "Age"
+
+msgid "Профиль"
+msgstr "Profile"
+
+msgid "Пол"
+msgstr "Gender"
+
+msgid "Мужской"
+msgstr "Male"
+
+msgid "Женский"
+msgstr "Female"
+
+msgid "Фото профиля"
+msgstr "Profile picture"
+
+msgid "Город"
+msgstr "City"
+
+msgid "О себе"
+msgstr "About me"
+
+msgid "Сохранить изменения"
+msgstr "Save changes"
+
+msgid "Имя"
+msgstr "First name"
+
+msgid "Фамилия"
+msgstr "Last name"
+
+msgid "Пароль"
+msgstr "Password"
+
+msgid "минимум 8 символов"
+msgstr "minimum 8 characters"
+
+msgid "Повторите пароль"
+msgstr "Confirm password"
+
+msgid "Электронная почта"
+msgstr "Email"
+
+msgid "Номер телефона"
+msgstr "Phone number"
+
+
+msgid "Дата рождения"
+msgstr "Date of birth"
+
+msgid "Анкеты"
+msgstr "User profiles"
+
+msgid "Нравится"
+msgstr "Like"
+
+msgid "Дальше"
+msgstr "Next"
+
+msgid "Отправить"
+msgstr "Submit"
+
+msgid "Основные правила:"
+msgstr "Main rules:"
+
+msgid "Только серьёзные намерения или дружеское общение."
+msgstr "Only serious intentions or friendly communication."
+
+msgid "Избегайте блуда и разврата"
+msgstr "Avoid sexual immorality and impurity"
+
+msgid "Это хорошо и приятно"
+msgstr "It is good and pleasant"
+
+msgid "Все решает только сам человек, не Библия"
+msgstr "It's up to the individual, not the Bible"
+
+msgid "В Библии ничего нет об этом"
+msgstr "The Bible says nothing about this"
+
+msgid "Брак — союз перед Богом"
+msgstr "Marriage is a union before God"
+
+msgid "Основные правила:"
+msgstr "Main rules:"
+
+msgid "Основные правила:"
+msgstr "Basic rules:"
+
+msgid "Что Библия говорит о блуде?"
+msgstr "What does the Bible say about sexual immorality?"
+
+msgid "Что Библия говорит о браке и почему это важно?"
+msgstr "What does the Bible say about marriage, and why is it important?"
+
+msgid "Отправить"
+msgstr "Submit"
+
+msgid "Короткий тест"
+msgstr "Short test"
+
+msgid "Каковы ваши намерения на этом сайте?"
+msgstr "What are your intentions on this site?"
+
+msgid "Пройти тест"
+msgstr "Take the test"
+
+msgid "Основные правила:"
+msgstr "Main rules:"
+
+msgid "Неуважение к другим пользователям приведёт к блокировке"
+msgstr "Disrespect towards other users will result in a ban"
+
+msgid "Дальше"
+msgstr "Next"
+
+msgid "Фото профиля"
+msgstr "Profile picture"
+
+msgid "Короткий тест"
+msgstr "Short test"
+
+
+
+
+
+
+
+
+
+
+
 
 
 

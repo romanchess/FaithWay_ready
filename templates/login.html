@@ -5,29 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ _('Вход') }}</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  <meta name="description" content="{{ _('Страница входа пользователя') }}">
+  <meta name="description" content="{{ _('Страница входа') }}">
 </head>
 <body>
 
-  <header>
+<header>
+  <div class="header-container">
     <h1>{{ _('Вход') }}</h1>
-    <nav>
+
+    <nav aria-label="Основное меню">
       <ul>
-        <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
-        <li><a href="{{ url_for('bible') }}">{{ _('Библия') }}</a></li>
-        <li><a href="{{ url_for('groups') }}">{{ _('Группы') }}</a></li>
-        <li><a href="{{ url_for('events') }}">{{ _('Мероприятия') }}</a></li>
-        <li><a href="{{ url_for('about') }}">{{ _('О нас') }}</a></li>
-        
-        {% if current_user.is_authenticated %}
-          <li><a href="{{ url_for('logout_route') }}">{{ _('Выход') }}</a></li>
-        {% else %}
-          <li><a href="{{ url_for('register_route') }}">{{ _('Регистрация') }}</a></li>
-          <li><a href="{{ url_for('login_route') }}">{{ _('Вход') }}</a></li>
-        {% endif %}
+        <li><a href="{{ url_for('home', lang=get_locale()) }}">{{ _('Главная') }}</a></li>
+        <li><a href="{{ url_for('groups', lang=get_locale()) }}">{{ _('Сообщество и знакомства') }}</a></li>
+        <li><a href="{{ url_for('events', lang=get_locale()) }}">{{ _('Мероприятия') }}</a></li>
+        <li><a href="{{ url_for('about', lang=get_locale()) }}">{{ _('О нас') }}</a></li>
+        <li><a href="{{ url_for('bible', lang=get_locale()) }}">{{ _('Библия') }}</a></li>
       </ul>
     </nav>
-  </header>
+
+    <div class="auth-buttons">
+      {% if current_user.is_authenticated %}
+        <a href="{{ url_for('profile') }}" class="auth-btn">{{ _('Личный кабинет') }}</a>
+        <a href="{{ url_for('logout_route') }}" class="auth-btn">{{ _('Выход') }}</a>
+      {% else %}
+        <a href="{{ url_for('register_route') }}" class="auth-btn">{{ _('Регистрация') }}</a>
+        <a href="{{ url_for('login_route') }}" class="auth-btn">{{ _('Вход') }}</a>
+      {% endif %}
+    </div>
+  </div>
+</header>
 
   <main>
 
@@ -54,10 +60,10 @@
       <label for="password">{{ _('Пароль') }}:</label>
       <input type="password" id="password" name="password" required>
       
-      <button type="submit">{{ _('Войти') }}</button>
+      <button type="submit">{{ _('Вход') }}</button>
     </form>
 
-    <p>{{ _('Еще нет аккаунта?') }} <a href="{{ url_for('register_route', lang=get_locale()) }}">{{ _('Зарегистрироваться') }}</a></p>
+    <p>{{ _('Еще нет аккаунта?') }} <a href="{{ url_for('register_route', lang=get_locale()) }}">{{ _('Регистрация') }}</a></p>
 
   </main>
 

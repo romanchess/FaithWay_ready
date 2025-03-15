@@ -13,216 +13,266 @@ body {
     margin: 0 auto;
 }
 
-/* Шапка сайта */
+/* Стили для header */
 header {
-    background-color: #00bfff;
-    color: gray;
-    padding: 20px ;
-    text-align: center;
+    background-color: #007BFF;
+    color: white;
+    padding: 20px 40px;
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 20px 0 0 0;
-    padding: 0;
+/* Контейнер для выравнивания */
+.header-container {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav li {
-    margin: 15px;
-    font-size: 1.5em;
+/* Основной заголовок */
+header h1 {
+    margin: 0;
+    font-size: 32px;
 }
 
-nav a {
+/* Меню навигации */
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: 25px;
+}
+
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 15px;
 }
 
-nav a:hover {
+nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Кнопки авторизации */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+.auth-btn {
+    background-color: white;
+    color: #007BFF;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-btn:hover {
+    background-color: #e2e6ea;
+    transform: scale(1.05);
+}
+
+/* Стили для текста на изображении */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.text-overlay h2 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+}
+
+.text-overlay p, .text-overlay ul, .text-overlay li {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+.text-overlay ul {
+    list-style: none;
+    padding: 0;
+}
+
+.text-overlay ul li {
+    margin-bottom: 10px;
+}
+
+/* Стили для форм (вертикальное выравнивание) */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.auth-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.auth-form input,
+.auth-form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.auth-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.auth-form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Центрирование main только для страниц с формами */
+.auth-page main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+}
+
+/* Секция с кнопками */
+.community-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    text-align: center;
+}
+
+/* Заголовок секции */
+.community-section h2 {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+/* Список кнопок */
+.community-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Стили для кнопок */
+.community-section ul li a {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    color: #007BFF;
+    background-color: white;
+    border: 2px solid #007BFF;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.community-section ul li a:hover {
+    background-color: #007BFF;
+    color: white;
+    transform: scale(1.05);
+}
 
 /* Hero section */
 .hero {
     position: relative;
     width: 100%;
-    height: 100vh; 
+    height: 100vh;
     overflow: hidden;
 }
 
 .hero img {
     width: 100%;
-    height:120%;
-    object-fit: cover; /* Картинка растягивается на весь экран */
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Затемнение для лучшей читаемости */
+.hero::after {
+    content: "";
     position: absolute;
-  
+    top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
-.text-overlay {
-    position: absolute;
-    top: 20%; /* Текст будет находиться сверху */
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    text-align: center;
-    padding: -80px;
-    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
-    width: 90%; /* Контейнер для текста */
-    border-radius: 10px;
-    font-size: 1em;
-    max-height: 80vh;
-    overflow: hidden; 
-}
-
-.text-overlay h2 {
-    font-size: 3em;
-}
-
-.text-overlay p {
-    font-size: 2em;
-    line-height: 1.6;
-}
-
-/* Основной контент */
-/* Контейнер для фото */
-.profile-image {
-    text-align: center; /* Центрируем фото */
-    margin-bottom: 20px;
-}
-
-/* Фото профиля */
-.profile-image img {
-    width: 150px;  /* Устанавливаем фиксированный размер */
-    height: 150px;
-    object-fit: cover; /* Обрезает фото, чтобы оно было равномерным */
-    border-radius: 50%; /* Делаем фото круглым */
-    border: 3px solid #007BFF; /* Добавляем рамку */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
-}
-
-
-main {
-    padding-top: 0px;
-    padding-bottom: 40px;
-    text-align: center;
-}
-
-.description {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 18px;
-}
-
-.description h1 {
-    color: #1E90FF;
-}
-
-.description ul {
-    list-style: none;
-    padding: 0;
-}
-
-.description ul li {
-    font-style: italic;
-    margin: 12px 0;
-}
-
-/* Контейнер формы */
-.auth-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-}
-
-/* Контейнер формы с вертикальным расположением элементов */
-.auth-form {
-  max-width: 500px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch; /* элементы будут растягиваться по ширине */
-}
-
-/* Метки полей (label) с увеличенным шрифтом */
-.auth-form label {
-  display: block;
-  font-size: 1.5em;  /* увеличенный размер шрифта */
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* Поля ввода, выпадающие списки и кнопки с увеличенным шрифтом и отступами */
-.auth-form input,
-.auth-form select,
-.auth-form button {
-  display: block;
-  width: 100%;
-  font-size: 1em;  /* чуть больше шрифт */
-  padding: 12px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Кнопка отправки */
-.auth-form button {
-  background-color: #007BFF;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.auth-form button:hover {
-  background-color: #0056b3;
+.hidden {
+    display: none;
 }
 
 /* Подвал */
 footer {
-    background-color: #00bfff;
-    color: black;
+    background-color: #007BFF;
+    color: white;
     text-align: center;
     padding: 10px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
+    z-index: 100;
 }
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    .hero {
-        height: 50vh;
+    .community-section ul {
+        gap: 15px;
     }
 
-    .text-overlay h2 {
+    .community-section ul li a {
+        padding: 15px 30px;
+        font-size: 18px;
+        max-width: 100%;
+    }
+
+    .community-section h2 {
         font-size: 1.8em;
     }
 
-    .text-overlay p {
-        font-size: 1em;
+    .hero img {
+        height: 100%;
+        object-fit: cover;
     }
-
-
-
-
-
-
 }
-
-
-
