@@ -65,32 +65,66 @@ def get_dating_profiles():
 # Obsługa "lajków" – tutaj wykorzystujemy SQLAlchemy do wykonania surowego zapytania
 # ... предыдущий код без изменений ...
 
+from flask import jsonify, request
+from models import Like, User, PrivateMessage, db
+
+
 def like_profile_func():
     data = request.get_json()
     liked_user_id = data.get('liked_user_id')
 
-    if not liked_user_id:
-        return jsonify({"error": "liked_user_id is required"}), 400
+    # Проверка на существование пользователя
+    liked_user = User.query.get(liked_user_id)
+    if not liked_user:
+        return jsonify({'error': 'Пользователь не найден'}), 404
 
-    try:
-        existing_like = Like.query.filter_by(user_id=current_user.id, liked_user_id=liked_user_id).first()
-        if existing_like:
-            return jsonify({"message": "Лайк уже поставлен."})
+    # Проверяем, существует ли лайк
+    existing_like = Like.query.filter_by(user_id=current_user.id, liked_user_id=liked_user_id).first()
 
-        new_like = Like(user_id=current_user.id, liked_user_id=liked_user_id)
-        db.session.add(new_like)
+    # Проверяем, есть ли взаимный лайк
+    reciprocal_like = Like.query.filter_by(user_id=liked_user_id, liked_user_id=current_user.id).first()
+
+    # Если лайк уже существует, но еще нет переписки, проверяем совпадение
+    if existing_like:
+        if reciprocal_like:
+            # Проверяем, существует ли уже переписка
+            existing_message = PrivateMessage.query.filter(
+                ((PrivateMessage.sender_id == current_user.id) & (PrivateMessage.receiver_id == liked_user_id)) |
+                ((PrivateMessage.sender_id == liked_user_id) & (PrivateMessage.receiver_id == current_user.id))
+            ).first()
+
+            # Если переписки нет, создаем первое пустое сообщение (или просто разрешаем чат)
+            if not existing_message:
+                first_message = PrivateMessage(
+                    sender_id=current_user.id,
+                    receiver_id=liked_user_id,
+                    message="Чат открыт! Начните общение."
+                )
+                db.session.add(first_message)
+                db.session.commit()
+
+            return jsonify({'message': 'У вас совпадение! Чат открыт.', 'match': True}), 200
+        else:
+            return jsonify({'message': 'Лайк уже поставлен.', 'match': False}), 200
+
+    # Если лайка еще нет, добавляем
+    new_like = Like(user_id=current_user.id, liked_user_id=liked_user_id)
+    db.session.add(new_like)
+    db.session.commit()
+
+    # Если после нового лайка есть взаимный лайк — создаем первое сообщение
+    if reciprocal_like:
+        first_message = PrivateMessage(
+            sender_id=current_user.id,
+            receiver_id=liked_user_id,
+            message="Чат открыт! Начните общение."
+        )
+        db.session.add(first_message)
         db.session.commit()
 
-        mutual_like = Like.query.filter_by(user_id=liked_user_id, liked_user_id=current_user.id).first()
-        if mutual_like:
-            return jsonify({"match": True, "message": "У вас совпадение! Теперь вы можете общаться."})
+        return jsonify({'message': 'У вас совпадение! Чат открыт.', 'match': True}), 200
 
-        return jsonify({"match": False, "message": "Лайк отправлен."})
-
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({"error": str(e)}), 500
-
+    return jsonify({'message': 'Лайк успешно поставлен.', 'match': False}), 200
 
 
 def dislike_profile():
@@ -131,18 +165,23 @@ def send_private_message_func():
     return jsonify({"status": "ok", "message": "Сообщение отправлено."})
 
 def get_private_messages_func(user_id):
-    messages = PrivateMessage.query.filter(
-        ((PrivateMessage.sender_id == current_user.id) & (PrivateMessage.receiver_id == user_id)) |
-        ((PrivateMessage.sender_id == user_id) & (PrivateMessage.receiver_id == current_user.id))
-    ).order_by(PrivateMessage.timestamp.asc()).all()
+    try:
+        messages = PrivateMessage.query.filter(
+            ((PrivateMessage.sender_id == current_user.id) & (PrivateMessage.receiver_id == user_id)) |
+            ((PrivateMessage.sender_id == user_id) & (PrivateMessage.receiver_id == current_user.id))
+        ).order_by(PrivateMessage.timestamp.asc()).all()
 
-    return jsonify([
-        {
-            "sender": msg.sender.first_name,
-            "message": msg.message,
-            "timestamp": msg.timestamp.strftime("%Y-%m-%d %H:%M:%S")
-        } for msg in messages
-    ])
+        return jsonify([
+            {
+                "sender": msg.sender.first_name if msg.sender else "Unknown",
+                "message": msg.message,
+                "timestamp": msg.timestamp.strftime("%Y-%m-%d %H:%M:%S")
+            } for msg in messages
+        ])
+    except Exception as e:
+        print(f"Ошибка при загрузке сообщений: {e}")
+        return jsonify({"error": str(e)}), 500
+
 
 
 

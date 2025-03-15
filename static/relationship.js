@@ -8,20 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const moralityAnswer = document.getElementById("moralityAnswer");
     const marriageAnswer = document.getElementById("marriageAnswer");
 
-    // Показываем попап, убирая класс hidden
     popup.classList.remove("hidden");
 
-    startTest.addEventListener("click", () => {
-        console.log("Кнопка Пройти тест нажата");
+    startTest?.addEventListener("click", () => {
         popup.classList.add("hidden");
         test.classList.remove("hidden");
     });
 
-    submitTest.addEventListener("click", async () => {
-        console.log("Кнопка Отправить нажата");
-        const intention = testAnswer.value;
-        const morality = moralityAnswer.value;
-        const marriage = marriageAnswer.value;
+    submitTest?.addEventListener("click", async () => {
+        const intention = testAnswer?.value;
+        const morality = moralityAnswer?.value;
+        const marriage = marriageAnswer?.value;
+
+        if (!intention || !morality || !marriage) {
+            alert("Пожалуйста, заполните все поля теста.");
+            return;
+        }
 
         if (intention === "fun" || morality !== "avoid" || marriage !== "official") {
             alert(translations.notSuitable);
@@ -60,7 +62,7 @@ function showProfile(profiles, index) {
     }
 
     const profile = profiles[index];
-    document.getElementById("profile-pic").src = profile.profile_picture;
+    document.getElementById("profile-pic").src = `/static/user_photos/${profile.profile_picture || 'default.jpg'}`;
     document.getElementById("profile-name").innerText = profile.name;
     document.getElementById("profile-city").innerText = `${translations.city}: ${profile.city}`;
     document.getElementById("profile-age").innerText = `${translations.age}: ${profile.age}`;
@@ -96,12 +98,40 @@ async function sendLike(likedUserId) {
             body: JSON.stringify({ liked_user_id: likedUserId })
         });
         const data = await response.json();
+
         if (data.match) {
             alert(translations.matchFound);
+
+            const matchNotification = document.getElementById("match-notification");
+            const chatLink = document.getElementById("chat-link");
+
+            chatLink.href = `/private_chat/${likedUserId}`;
+            matchNotification.classList.remove("hidden");
         }
+
         console.log(data.message);
     } catch (error) {
         console.error(translations.errorSendingLike, error);
+    }
+}
+
+// Modify the message rendering to show the timestamp above the message
+async function loadMessages() {
+    try {
+        const response = await fetch(`/get_private_messages/${receiverId}`);
+        const messages = await response.json();
+
+        messagesDiv.innerHTML = '';
+        messages.forEach(msg => {
+            messagesDiv.innerHTML += `
+                <div class="message">
+                    <div class="timestamp" style="display: block; margin-bottom: 5px;">${msg.timestamp}</div>
+                    <div><span>${msg.sender}:</span> ${msg.message}</div>
+                </div>`;
+        });
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    } catch (error) {
+        console.error('Ошибка загрузки сообщений:', error);
     }
 }
 

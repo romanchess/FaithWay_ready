@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ _('Чат') }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">   
+</head>
+<body>
+
+<header>
+    <h1>{{ _('Личный чат') }}</h1>
+</header>
+
+<main>
+   <div class="chat-container">
+        <div id="messages" class="messages"></div>
+
+        <div class="send-message">
+            <input id="message-input" type="text" placeholder="{{ _('Введите сообщение...') }}" autocomplete="off">
+            <button id="send-btn">{{ _('Отправить') }}</button>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    const receiverId = {{ user_id }};
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-btn');
+    const messagesDiv = document.getElementById('messages');
+
+    // Загрузка сообщений
+    async function loadMessages() {
+        try {
+            const response = await fetch(`/get_private_messages/${receiverId}`);
+            const messages = await response.json();
+
+            messagesDiv.innerHTML = '';
+            messages.forEach(msg => {
+                messagesDiv.innerHTML += `
+                    <div class="message">
+                        <div class="timestamp">${msg.timestamp}</div>
+                        <div class="message-text"><strong>${msg.sender}:</strong> ${msg.message}</div>
+                    </div>`;
+            });
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        } catch (error) {
+            console.error('Ошибка загрузки сообщений:', error);
+        }
+    }
+
+    // Отправка сообщения
+    async function sendMessage() {
+        const messageText = messageInput.value.trim();
+        if (messageText === '') return;
+
+        try {
+            const response = await fetch('/send_private_message', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ receiver_id: receiverId, message: messageText })
+            });
+
+            const result = await response.json();
+            if (result.status === 'ok') {
+                messageInput.value = '';
+                loadMessages();
+            } else {
+                console.error('Ошибка отправки сообщения:', result.error);
+            }
+        } catch (error) {
+            console.error('Ошибка отправки сообщения:', error);
+        }
+    }
+
+    // Обработчик кнопки
+    sendButton.addEventListener('click', sendMessage);
+
+    // Отправка по Enter
+    messageInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Загрузка сообщений при загрузке страницы
+    loadMessages();
+
+    // Автоматическое обновление каждые 5 секунд
+    setInterval(loadMessages, 5000);
+</script>
+
+</body>
+</html>

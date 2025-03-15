@@ -61,7 +61,7 @@
             <h2>{{ _('Анкеты') }}</h2>
             <div id="profile-container">
                 <div id="profile-card" class="profile-card">
-                    <img id="profile-pic" src="" alt="{{ _('Фото профиля') }}">
+                    <img id="profile-pic" src="{{ url_for('static', filename='user_photos/' + (profile.profile_picture or 'default.jpg')) }}" alt="{{ _('Фото профиля') }}">
                     <h3 id="profile-name"></h3>
                     <p id="profile-city"></p>
                     <p id="profile-age"></p>
@@ -72,9 +72,10 @@
         </div>
 
         <div id="match-notification" class="hidden">
-            <p>{{ _('У вас совпадение! Перейдите в чат, чтобы начать общение.') }}</p>
-            <a id="chat-link" href="">{{ _('Перейти в чат') }}</a>
-        </div>
+    <p>{{ _('У вас совпадение! Перейдите в чат, чтобы начать общение.') }}</p>
+    <a id="chat-link" href="">{{ _('Перейти в чат') }}</a>
+</div>
+
 
     </main>
 
