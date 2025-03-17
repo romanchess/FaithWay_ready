@@ -14,10 +14,12 @@
         
 <header>
   <div class="header-container">
-  <div class="burger-menu">
+ 
+    <h1>{{ _('О нас') }}</h1>
+    
+     <div class="burger-menu">
             ☰
         </div>
-    <h1>{{ _('О нас') }}</h1>
 
     <nav aria-label="Основное меню">
       <ul>
@@ -60,7 +62,8 @@
 
   <footer>
     <p>&copy; 2025 Faith Project. {{ _('Все права защищены.') }}</p>
-    <!-- Скрипт для смены языка -->
+      <script src="{{ url_for('static', filename='burger.js') }}"></script>
+   
     <script>
       function changeLanguage(event) {
         const lang = event.target.value;

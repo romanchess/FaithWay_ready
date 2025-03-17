@@ -13,10 +13,12 @@
 <header>
   <div class="header-container">
   
-  <div class="burger-menu">
+ 
+    <h1>{{ _('Мероприятия') }}</h1>
+    
+     <div class="burger-menu">
             ☰
         </div>
-    <h1>{{ _('Мероприятия') }}</h1>
 
     <nav aria-label="Основное меню">
       <ul>
@@ -52,6 +54,7 @@
   </main>
 
   <footer>
+   <script src="{{ url_for('static', filename='burger.js') }}"></script>
     <p>&copy; 2025 Faith Project. {{ _('Все права защищены.') }}</p>
   </footer>
 </body>
