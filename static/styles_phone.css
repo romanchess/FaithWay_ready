@@ -1,54 +1,213 @@
+/* General styles */
+.hero {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero .text-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+nav ul li a, .community-section ul li a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.community-section ul li a {
+    padding: 15px 30px;
+    border-radius: 8px;
+    background-color: #007BFF;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.community-section ul li a:hover {
+    background-color: #0056b3;
+}
+
+.community-section h2 {
+    font-size: 2em;
+    text-align: center;
+}
+
+/* Основной стиль для кнопок "Регистрация" и "Логование" */
+.auth-buttons a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    color: #007BFF;
+    background-color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    display: inline-block;
+}
+
+/* Hover-эффект для кнопок */
+.auth-buttons a:hover {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+/* Бургер-меню */
+.burger-menu {
+    display: none;
+}
+
 /* Media query for screens with width <= 768px */
 @media (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        background-color: #007BFF;
+        z-index: 10;
+    }
+
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 24px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 20;
+        color: #fff;
+    }
+
+    .burger-menu.active + nav ul {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 15px;
+        text-align: center;
+    }
+
     .community-section ul {
         gap: 15px;
+        padding: 15px;
     }
 
     .community-section ul li a {
-        padding: 15px 30px;
-        font-size: 18px;
-        max-width: 100%;
+        padding: 15px 20px;
+        font-size: 16px;
+        width: 100%;
     }
 
     .community-section h2 {
         font-size: 1.8em;
     }
 
-    .hero img {
-        height: 100%;
-        object-fit: cover;
+    .hero {
+        height: auto;
     }
 
-    /* Additional rules for chat, forms, images, etc. */
-    /* Set smaller widths/heights for #profile-pic, etc. */
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
 
     /* #profile-pic adjustments */
     #profile-pic {
-        /* For smaller screens, reduce size */
-        width: 150px; /* phone-friendly width */
+        width: 150px;
         height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
-    /* Chat container adjustments */
     .chat-container {
-        padding: 10px; /* some spacing if needed */
+        padding: 10px;
+        overflow-y: auto;
+        max-height: 70vh;
+    }
+
+    /* Адаптивность кнопок авторизации */
+    .auth-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    h1, h2 {
+        margin-bottom: 25px;
+    }
+
+    .text-overlay, .container {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .container p {
+        padding: 10px;
+        line-height: 1.6;
+    }
+
+    .community-section ul li a,
+    .container a,
+    button {
+        width: 100%;
+        max-width: 250px;
+        padding: 12px;
+        margin: 10px auto;
+        text-align: center;
+        border-radius: 8px;
+        font-size: 16px;
+        display: block;
     }
 }
 
 /* Media query for even smaller screens, e.g. width <= 480px */
 @media (max-width: 480px) {
-    /* #profile-pic phone-friendly */
-    #profile-pic {
-        width: 120px;
-        height: 120px;
+    h1, h2 {
+        font-size: 1.5em;
     }
 
-    /* Possibly reduce font sizes further */
-    body {
+    .auth-buttons a {
+        padding: 8px 16px;
         font-size: 14px;
     }
-    .message-text {
-        font-size: 13px;
+
+    .community-section ul li a {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .container p {
+        font-size: 14px;
+    }
+
+    .chat-container {
+        padding: 8px;
+    }
+
+    .burger-menu {
+        font-size: 20px;
+        top: 5px;
+        right: 5px;
     }
 }
 

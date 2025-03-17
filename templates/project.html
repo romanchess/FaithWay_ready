@@ -13,7 +13,11 @@
 <header>
   <div class="header-container">
     <h1>{{ _('Добро пожаловать на Faith Way') }}</h1>
-
+    
+     <div class="burger-menu">
+            ☰
+        </div>
+    
     <nav class="main-nav">
       <ul>
         <li><a href="{{ url_for('home') }}">{{ _('Главная') }}</a></li>
@@ -71,11 +75,22 @@
     <div class="container">
       <p>{{ _('Здесь вы найдете Библию, ссылки на группы верующих и информацию о предстоящих мероприятиях.') }}</p>
     </div>
+    
+    
+    
+
+
+</body>
+</html>
+
   </main>
 
   <footer>
     <p>&copy; 2025 Faith Project. {{ _('Все права защищены.') }}</p>
   </footer>
+  
+  <!-- Подключение JavaScript файла -->
+<script src="{{ url_for('static', filename='burger.js') }}"></script>
 
   <script>
     // Function to change language
