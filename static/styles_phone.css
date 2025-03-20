@@ -1,33 +1,33 @@
-
+/* Hero section */
 .hero {
     position: relative;
     width: 100%;
     height: auto;
-    max-height: 500px; 
-    overflow: hidden; 
+    max-height: 500px;
+    overflow: hidden;
 }
-
 
 .hero img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* Ensures image covers the area without stretching */
+    display: block;
 }
 
-
+/* Responsive image adaptation */
 @media (max-width: 768px) {
     .hero {
-        max-height: 400px; /
+        max-height: 400px;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        max-height: 300px; /* 
+        max-height: 300px;
     }
 }
 
-
+/* Overlay effect */
 .hero::after {
     content: '';
     position: absolute;
@@ -36,18 +36,21 @@
     z-index: 1;
 }
 
+/* Ensures text stays above the overlay */
 .hero .text-content {
     position: relative;
     z-index: 2;
     color: #fff;
 }
 
+/* Navigation links */
 nav ul li a, .community-section ul li a {
     color: #fff;
     font-weight: bold;
     text-decoration: none;
 }
 
+/* Buttons inside community section */
 .community-section ul li a {
     padding: 15px 30px;
     border-radius: 8px;
@@ -65,7 +68,7 @@ nav ul li a, .community-section ul li a {
     text-align: center;
 }
 
-/* Основной стиль для кнопок "Регистрация" и "Логование" */
+/* Main styles for authentication buttons */
 .auth-buttons a {
     padding: 10px 20px;
     border-radius: 8px;
@@ -78,19 +81,20 @@ nav ul li a, .community-section ul li a {
     display: inline-block;
 }
 
-/* Hover-эффект для кнопок */
+/* Hover effect for buttons */
 .auth-buttons a:hover {
     background-color: #007BFF;
     color: #fff;
 }
 
-/* Бургер-меню */
+/* Burger menu styles */
 .burger-menu {
     display: none;
 }
 
-/* Media query for screens with width <= 768px */
+/* Responsive styles for screens <= 768px */
 @media (max-width: 768px) {
+    /* Hide navigation by default */
     nav ul {
         display: none;
         flex-direction: column;
@@ -102,6 +106,7 @@ nav ul li a, .community-section ul li a {
         z-index: 10;
     }
 
+    /* Burger menu styles */
     .burger-menu {
         display: block;
         cursor: pointer;
@@ -114,6 +119,7 @@ nav ul li a, .community-section ul li a {
         color: #fff;
     }
 
+    /* Show menu when burger is active */
     .burger-menu.active + nav ul {
         display: flex;
     }
@@ -123,6 +129,7 @@ nav ul li a, .community-section ul li a {
         text-align: center;
     }
 
+    /* Adjust community section */
     .community-section ul {
         gap: 15px;
         padding: 15px;
@@ -138,6 +145,7 @@ nav ul li a, .community-section ul li a {
         font-size: 1.8em;
     }
 
+    /* Ensure hero section is responsive */
     .hero {
         height: auto;
     }
@@ -147,7 +155,7 @@ nav ul li a, .community-section ul li a {
         height: auto;
     }
 
-    /* #profile-pic adjustments */
+    /* Profile picture adjustments */
     #profile-pic {
         width: 150px;
         height: 150px;
@@ -161,18 +169,21 @@ nav ul li a, .community-section ul li a {
         max-height: 70vh;
     }
 
-    /* Адаптивность кнопок авторизации */
+    /* Authentication buttons should wrap properly */
     .auth-buttons {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-top: 15px;
+        flex-wrap: wrap;
     }
 
+    /* Adjust title spacing */
     h1, h2 {
         margin-bottom: 25px;
     }
 
+    /* Adjust text block padding */
     .text-overlay, .container {
         padding: 15px;
         text-align: center;
@@ -183,6 +194,7 @@ nav ul li a, .community-section ul li a {
         line-height: 1.6;
     }
 
+    /* Improve buttons in the community section */
     .community-section ul li a,
     .container a,
     button {
@@ -197,17 +209,19 @@ nav ul li a, .community-section ul li a {
     }
 }
 
-/* Media query for even smaller screens, e.g. width <= 480px */
+/* Responsive styles for screens <= 480px */
 @media (max-width: 480px) {
     h1, h2 {
         font-size: 1.5em;
     }
 
+    /* Adjust authentication buttons */
     .auth-buttons a {
         padding: 8px 16px;
         font-size: 14px;
     }
 
+    /* Improve buttons in community section */
     .community-section ul li a {
         font-size: 14px;
         padding: 10px;
@@ -221,6 +235,7 @@ nav ul li a, .community-section ul li a {
         padding: 8px;
     }
 
+    /* Adjust burger menu for smaller screens */
     .burger-menu {
         font-size: 20px;
         top: 5px;
