@@ -116,8 +116,8 @@ main {
     padding: 0px;
     margin: 0 auto;
     background: white;
-    font-size: 7px !important;; /* Adjust the size as needed */
-    line-height: 0.7; /* Improves readability *
+    font-size: 14px !important;; /* Adjust the size as needed */
+    line-height: 1.5; /* Improves readability *
 }
 footer {
     margin-top: -10px;
