@@ -241,4 +241,26 @@ nav ul li a, .community-section ul li a {
         top: 5px;
         right: 5px;
     }
+
+/* Ensure the main content does not take too much space */
+main {
+    max-width: 100%;
+    padding: 10px; /* Reduce padding */
+    margin: 0 auto; /* Centering */
+}
+
+/* Reduce the size of text blocks inside main */
+main .text-overlay, main .container {
+    max-width: 90%;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Fix footer height */
+footer {
+    height: auto;
+    padding: 10px 15px;
+    text-align: center;
+}
+
 }
