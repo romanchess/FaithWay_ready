@@ -14,6 +14,13 @@
     padding: 8px 12px;
 }
 
+.nav-buttons {
+    display: flex;
+    justify-content: center; /* Центрирует кнопки */
+    gap: 10px; /* Добавляет расстояние между кнопками */
+}
+
+
 
 /* Make sure the navigation menu is initially hidden */
 nav ul {
