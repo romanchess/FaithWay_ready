@@ -1,28 +1,12 @@
-.hero {
-    position: relative;
-    width: 100%;
-    height: auto;
-    max-height: 400px; /* Default height */
-    overflow: hidden;
-}
-
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-
+/* Hide the image on screens smaller than 768px (tablets & phones) */
 @media (max-width: 768px) {
-    .hero {
-        max-height: 350px; /* Slightly smaller for tablets */
+    .hero img {
+        display: none; /* Hides the image */
     }
-}
 
-@media (max-width: 480px) {
     .hero {
-        max-height: 280px; /* Adjust for small screens */
+        height: auto; /* Adjusts height so there's no empty space */
+        background: none; /* Ensures no empty background */
     }
 }
 
