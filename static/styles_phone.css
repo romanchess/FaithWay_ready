@@ -138,7 +138,14 @@ nav ul li a, .community-section ul li a {
         font-size: 1.8em;
     }
 
+    .hero {
+        height: auto;
+    }
 
+    .hero img {
+        width: 100%;
+        height: auto;
+    }
 
     /* #profile-pic adjustments */
     #profile-pic {
