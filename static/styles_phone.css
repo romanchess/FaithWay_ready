@@ -114,6 +114,6 @@ main {
     padding: 3px;
     margin: 0 auto;
     background: white;
-    font-size: 14px; /* Adjust the size as needed */
-    line-height: 1.5; /* Improves readability *
+    font-size: 10px; /* Adjust the size as needed */
+    line-height: 1; /* Improves readability *
 }
