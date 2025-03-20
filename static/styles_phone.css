@@ -111,13 +111,18 @@ main {
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 3px;
+    padding: 0px;
     margin: 0 auto;
     background: white;
-    font-size: 8px; /* Adjust the size as needed */
-    line-height: 1; /* Improves readability *
+    font-size: 7px; /* Adjust the size as needed */
+    line-height: 0.7; /* Improves readability *
 }
 footer {
     margin-top: -10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 }
 }
