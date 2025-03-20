@@ -1,3 +1,49 @@
+/* Ensure the burger menu is visible and always on top */
+.burger-menu {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 28px;
+    position: absolute;
+    top: 15px; /* Adjust position */
+    right: 15px;
+    z-index: 100; /* Keep it on top */
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Slight background for better visibility */
+    border-radius: 5px;
+    padding: 8px 12px;
+}
+
+/* Make sure the navigation menu is initially hidden */
+nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Below the burger menu */
+    right: 0;
+    width: 100%;
+    background-color: #007BFF;
+    z-index: 99;
+    padding: 10px 0;
+}
+
+/* When burger menu is clicked, show the menu */
+.burger-menu.active + nav ul {
+    display: flex;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        width: 100%;
+    }
+
+    nav ul li {
+        padding: 15px;
+        text-align: center;
+    }
+}
+
 /* Full-screen hero section */
 .hero {
     position: relative;
@@ -65,7 +111,9 @@ main {
     position: relative;
     z-index: 2;
     width: 100%;
-    padding: 20px;
+    padding: 3px;
     margin: 0 auto;
     background: white;
+    font-size: 14px; /* Adjust the size as needed */
+    line-height: 1.5; /* Improves readability *
 }
