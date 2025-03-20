@@ -114,6 +114,10 @@ main {
     padding: 3px;
     margin: 0 auto;
     background: white;
-    font-size: 10px; /* Adjust the size as needed */
+    font-size: 8px; /* Adjust the size as needed */
     line-height: 1; /* Improves readability *
+}
+footer {
+    margin-top: -10px;
+}
 }
