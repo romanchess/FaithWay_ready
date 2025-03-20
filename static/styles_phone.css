@@ -247,13 +247,19 @@ main {
     color: black;
 }
 
-/* Reduce the size of text blocks inside main */
-main .text-overlay, main .container {
-    max-width: 90%;
-    padding: 15px;
-    text-align: center;
-    color: black;
+    main {
+    display: flex;
+    flex-direction: column; /* Ensures elements stack vertically */
 }
+
+.text-overlay {
+    order: 1; /* Ensure it's above */
+}
+
+.container {
+    order: 2; /* Move it below text-overlay */
+}
+
 
 /* Fix footer height */
 footer {
